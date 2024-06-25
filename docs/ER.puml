@@ -1,0 +1,135 @@
+@startuml ER-Diagram
+hide empty methods
+skinparam linetype ortho
+
+
+entity BaseModel {
+    * id : number <<generated>>
+    --
+    * created_at : timestamp
+    * updated_at : timestamp
+    * deleted_at : timestamp
+    * version: number
+}
+
+entity Role {
+    * name : text
+    * description : text
+}
+
+entity User {
+    * username : text
+    * password : text
+    --
+    * role_id : number <<FK>>
+}
+
+entity Administrative {
+    * name : text
+    --
+    * user_id : number <<FK>>
+}
+
+entity Admin {
+    * name : text
+    --
+    * user_id : number <<FK>>
+}
+
+entity ShiftManager {
+    * name : text
+    --
+    * user_id : number <<FK>>
+    * area_id : number <<FK>>
+}
+
+
+entity Area {
+    * name : text
+}
+
+entity Line {
+    * name : text
+    --
+    * area_id : number <<FK>>
+    * user_id : number <<FK>>
+}
+
+entity Operator {
+    * name : text
+    * rut : text
+    --
+    * line_id : number <<FK>>
+    * area_id : number <<FK>>
+    user_id : number <<FK>>
+}
+
+entity FirstKpi {
+    * turno : text
+    * toneladas_envasadas_L1 : number
+    * toneladas_producidas_L1 : number
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+entity SecondKpi {
+    * turno : text
+    * n_desviaciones : number
+    * n_auditorias : number
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+entity ThirdKpi {
+    * turno : text
+    * cumple : boolean
+    * comentario : text
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+entity FourthKpi {
+    * turno : text
+    * resultado : number
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+entity FifthKpi {
+    * turno : text
+    * resultado : number
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+entity SixthKpi {
+    * pedido mensual : number
+    --
+    * shiftmanager_id : number <<FK>>
+}
+
+note bottom of BaseModel
+    This is the base entity
+    for all entities
+end note
+
+User ||--|| Line
+User ||--|| Administrative
+User ||--|| Admin
+ShiftManager ||--|| User
+User |o--|| Operator
+User }o--|| Role
+Operator }o--|| Line
+Operator }o--|| Area
+Line }o--|| Area
+
+FirstKpi }o--|| ShiftManager
+SecondKpi }o--|| ShiftManager
+ThirdKpi }o--|| ShiftManager
+FourthKpi }o--|| ShiftManager
+FifthKpi }o--|| ShiftManager
+SixthKpi }o--|| ShiftManager
+
+
+
+@enduml
