@@ -40,7 +40,6 @@ entity ShiftManager {
     * name : text
     --
     * user_id : number <<FK>>
-    * area_id : number <<FK>>
 }
 
 
@@ -133,13 +132,6 @@ User }o--|| Role
 Operator }o--|| Line
 Operator }o--|| Area
 Area ||--o{ Line
-
-' Productivity }o--|| ShiftManager
-' LabelingQuality }o--|| ShiftManager
-' Cleanliness }o--|| ShiftManager
-' PeerObservations }o--|| ShiftManager
-' Security }o--|| ShiftManager
-' MonthlyProgrammingProgress }o--|| ShiftManager
 
 Shift }o--|| ShiftManager
 
