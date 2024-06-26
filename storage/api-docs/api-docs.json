@@ -1,0 +1,1075 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Aquachile",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login an user",
+                "description": "Login an user",
+                "operationId": "8dcb70df1020986038d098cc08d05dae",
+                "requestBody": {
+                    "description": "",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "The user's username",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The user's password",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "app_admin@example.com",
+                                    "password": "password"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout an user",
+                "description": "Logout an user, the token must be sent in the header.",
+                "operationId": "69281b12abb272c76871f19cb17ca563",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/administratives": {
+            "get": {
+                "tags": [
+                    "Administratives"
+                ],
+                "summary": "Show all administratives",
+                "description": "Returns a list of administratives",
+                "operationId": "0b1dbe9d4385cbeb526cd093c657d506",
+                "responses": {
+                    "200": {
+                        "description": "Show all administratives."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Administratives"
+                ],
+                "summary": "Create a new administrative",
+                "description": "Creates a new administrative with the received data",
+                "operationId": "39414bb0435269dc325ca3ee65c243eb",
+                "requestBody": {
+                    "description": "Administrative object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "The administrative's username",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The new password for the user",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "The administrative's name",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "new_administrative@example.com",
+                                    "password": "newPassword",
+                                    "name": "new administrative"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/administratives/{id}": {
+            "get": {
+                "tags": [
+                    "Administratives"
+                ],
+                "summary": "Show administrative",
+                "description": "Returns an administrative",
+                "operationId": "15eb9e8258defbee8aa13b49ef0b58ad",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one administrative."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Administratives"
+                ],
+                "summary": "Update existing administrative",
+                "description": "Returns a string message",
+                "operationId": "updateAdministrative",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Administrative object that needs to be updated. You can send 0 or more attributes in the body. If you send only one attribute, only that attribute will be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "The administrative's name",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "existent administrative"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Administratives"
+                ],
+                "summary": "Delete an administrative by ID",
+                "description": "Delete an administrative by ID",
+                "operationId": "2374eaf64224d63aa009165d4bf2df71",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Administrative deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/lines": {
+            "get": {
+                "tags": [
+                    "Lines"
+                ],
+                "summary": "Show all lines",
+                "description": "Returns a list of lines",
+                "operationId": "a132d6fa2f5a67047605e13a42636c4b",
+                "responses": {
+                    "200": {
+                        "description": "Show all lines."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Lines"
+                ],
+                "summary": "Create a new line",
+                "description": "Creates a new line with the received data",
+                "operationId": "e4496332b5ef8d18ce18e08f520a67d2",
+                "requestBody": {
+                    "description": "Line object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password",
+                                    "name",
+                                    "name_area"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "The line's username",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The new password for the user",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "The line's name",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The name of the area to which the line belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "new_line@example.com",
+                                    "password": "newPassword",
+                                    "name": "new line",
+                                    "name_area": "Ventas"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/lines/{id}": {
+            "get": {
+                "tags": [
+                    "Lines"
+                ],
+                "summary": "Show line",
+                "description": "Returns a line",
+                "operationId": "ff2ae4d7d75ee681a6c06579704f7355",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Lines"
+                ],
+                "summary": "Update existing line",
+                "description": "Returns a string message",
+                "operationId": "updateLine",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Line object that needs to be updated. You can send 0 or more attributes in the body. If you send only one attribute, only that attribute will be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "The line's name",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The name of the area to which the line belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "existent line",
+                                    "name_area": "Mantenimiento"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Lines"
+                ],
+                "summary": "Delete an line by ID",
+                "description": "Delete an line by ID",
+                "operationId": "17df23859ca93e635d387ac1dca33dd0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Line deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/operators": {
+            "get": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Show all operators",
+                "description": "Returns a list of operators",
+                "operationId": "d270346566d2c0168394f9e658df9457",
+                "responses": {
+                    "200": {
+                        "description": "Show all operators."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Create a new operator",
+                "description": "Creates a new operator with the received data",
+                "operationId": "18b1e1ae1f5635ada7043c8891e2221a",
+                "requestBody": {
+                    "description": "Operator object that needs to be created. Username & password are optional in case the operator doesn't need a user account",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "rut",
+                                    "name_area",
+                                    "name_line"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "The operator's username",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The operator's password",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "The operator's name",
+                                        "type": "string"
+                                    },
+                                    "rut": {
+                                        "description": "The operator's rut",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The area to which the operator belongs",
+                                        "type": "string"
+                                    },
+                                    "name_line": {
+                                        "description": "The line to which the operator belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "new_operator@example.com",
+                                    "password": "newPassword",
+                                    "name": "New Operator",
+                                    "rut": "22.222.222-2",
+                                    "name_area": "Ventas",
+                                    "name_line": "Linea de envasado 1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/operators/{id}": {
+            "get": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Show operator",
+                "description": "Returns a operator",
+                "operationId": "57a4be016fee9f04dec1e7e473fd441e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one operator."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Update existing operator",
+                "description": "Returns a string message",
+                "operationId": "updateOperator",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Operator object that needs to be updated. You can send 0 or more attributes in the body. If you send only one attribute, only that attribute will be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "The name of the operator",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The area to which the operator belongs",
+                                        "type": "string"
+                                    },
+                                    "name_line": {
+                                        "description": "The line to which the operator belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Updated Operator",
+                                    "name_area": "Mantenimiento",
+                                    "name_line": "Linea de envasado 1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Delete an operator by ID",
+                "description": "Delete an operator by ID",
+                "operationId": "38ae325b873bc09e445c5f8661b58cfd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Operator deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shiftmanagers": {
+            "get": {
+                "tags": [
+                    "ShiftManagers"
+                ],
+                "summary": "Show all shift managers",
+                "description": "Returns a list of shift managers",
+                "operationId": "72739c4cdb34dc99fa361fded8546fd3",
+                "responses": {
+                    "200": {
+                        "description": "Show all shift managers."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "ShiftManagers"
+                ],
+                "summary": "Create a new shift manager",
+                "description": "Creates a new shift manager with the received data",
+                "operationId": "b03c05021293ff41101e5fd675a2d15d",
+                "requestBody": {
+                    "description": "Shift manager object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password",
+                                    "name",
+                                    "name_area"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "The username's shift manager",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The password's shift manager",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "The name of the shift manager",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The area to which the shift manager belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "new_shiftmanager@example.com",
+                                    "password": "newPassword",
+                                    "name": "new shiftmanager",
+                                    "name_area": "Ventas"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shiftmanagers/{id}": {
+            "get": {
+                "tags": [
+                    "ShiftManagers"
+                ],
+                "summary": "Show shift manager",
+                "description": "Returns a shift manager",
+                "operationId": "7fe5cc9f0594783b0c0d8aa71f77cee6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one shift manager."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "ShiftManagers"
+                ],
+                "summary": "Update existing shift manager",
+                "description": "Returns a string message",
+                "operationId": "updateShiftManager",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Shift Manager object that needs to be updated. You can send 0 or more attributes in the body. If you send only one attribute, only that attribute will be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "The name's shift manager",
+                                        "type": "string"
+                                    },
+                                    "name_area": {
+                                        "description": "The area to which the shift manager belongs",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "existent shift manager",
+                                    "name_area": "Mantenimiento"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "ShiftManagers"
+                ],
+                "summary": "Delete an shift manager by ID",
+                "description": "Delete an shift manager by ID",
+                "operationId": "edd55832c76c4f7f6157f477d31350eb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Shift manager deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show all users",
+                "description": "Returns a list of users",
+                "operationId": "3cb156d18177e3eb3dcf927360e21909",
+                "responses": {
+                    "200": {
+                        "description": "Show all users."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show user",
+                "description": "Returns a user",
+                "operationId": "13d95ffe23c7bca618369a7836e69f52",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one user."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update existing user",
+                "description": "Returns a string message",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "User object that needs to be updated. You can send 0 or more attributes in the body. If you send only one attribute, only that attribute will be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "description": "The user's username",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "The user's password",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "user@example.com",
+                                    "password": "newPassword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete an user by ID",
+                "description": "Delete an user by ID",
+                "operationId": "f48d3329736cb2b7fd8aecd3d602effd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
