@@ -64,72 +64,98 @@ entity Operator {
     user_id : number <<FK>>
 }
 
-entity FirstKpi {
-    * turno : text
-    * toneladas_envasadas_L1 : number
-    * toneladas_producidas_L1 : number
+entity Productivity {
+    * packed_tons : number
+    * tons_produced : number
     --
-    * shiftmanager_id : number <<FK>>
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
 }
 
-entity SecondKpi {
-    * turno : text
-    * n_desviaciones : number
-    * n_auditorias : number
+entity LabelingQuality {
+    * n_deviations : number
+    * n_audits : number
     --
-    * shiftmanager_id : number <<FK>>
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
 }
 
-entity ThirdKpi {
-    * turno : text
-    * cumple : boolean
-    * comentario : text
+entity Cleanliness {
+    * done : boolean
+    * comment : text
     --
-    * shiftmanager_id : number <<FK>>
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
 }
 
-entity FourthKpi {
-    * turno : text
-    * resultado : number
+entity PeerObservations {
+    * result : number
     --
-    * shiftmanager_id : number <<FK>>
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
 }
 
-entity FifthKpi {
-    * turno : text
-    * resultado : number
+entity Security {
+    * result : number
     --
-    * shiftmanager_id : number <<FK>>
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
 }
 
-entity SixthKpi {
-    * pedido mensual : number
+entity MonthlyProgrammingProgress {
+    * mounthly_order : number
+    --
+    * shift_id : uuid <<FK>>
+    * line_id : number <<FK>>
+}
+
+entity Shift{
+    * id : uuid <<generated>>
+    --
+    * shift : text
+    * end_time : timestamp <<nullable>>
     --
     * shiftmanager_id : number <<FK>>
 }
 
 note bottom of BaseModel
     This is the base entity
-    for all entities
+    for all entities.
+    Excluding the Shifts entity.
 end note
 
-User ||--|| Line
+Line ||--|| User
 User ||--|| Administrative
 User ||--|| Admin
 ShiftManager ||--|| User
-User |o--|| Operator
+Operator |o--|| User
 User }o--|| Role
 Operator }o--|| Line
 Operator }o--|| Area
-Line }o--|| Area
+Area ||--o{ Line
 
-FirstKpi }o--|| ShiftManager
-SecondKpi }o--|| ShiftManager
-ThirdKpi }o--|| ShiftManager
-FourthKpi }o--|| ShiftManager
-FifthKpi }o--|| ShiftManager
-SixthKpi }o--|| ShiftManager
+' Productivity }o--|| ShiftManager
+' LabelingQuality }o--|| ShiftManager
+' Cleanliness }o--|| ShiftManager
+' PeerObservations }o--|| ShiftManager
+' Security }o--|| ShiftManager
+' MonthlyProgrammingProgress }o--|| ShiftManager
 
+Shift }o--|| ShiftManager
+
+Productivity ||--|| Shift
+LabelingQuality ||--|| Shift
+Cleanliness ||--|| Shift
+PeerObservations ||--|| Shift
+Security ||--|| Shift
+MonthlyProgrammingProgress |o--o| Shift
+
+Line ||--|| Productivity
+Line ||--|| LabelingQuality
+Line ||--|| Cleanliness
+Line ||--|| PeerObservations
+Line ||--|| Security
+Line ||--|| MonthlyProgrammingProgress
 
 
 @enduml
