@@ -1,5 +1,3 @@
-docker-compose up -d
-docker-compose exec php artisan migrate --seed
 # Dockerized PHP Laravel 10 Application
 
 This repository contains a Dockerized PHP Laravel application with support for Oracle database.
@@ -36,7 +34,7 @@ cp .env.example .env
 Use Docker Compose to build and start the containers:
 
 ```bash
-docker-compose up --build
+docker-compose up --d
 ```
 
 ### 4. Run Migrations
@@ -44,7 +42,7 @@ docker-compose up --build
 Run the database migrations to set up your database schema:
 
 ```bash
-docker-compose exec app php artisan migrate --seed
+docker-compose exec php artisan migrate --seed
 ```
 
 ### 5. Access the Application
