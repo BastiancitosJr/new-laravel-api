@@ -10,7 +10,7 @@ enum UserRolesEnum: int
     case OPERATOR = 4; // This is an operator
     case LINE =  5; // This is a line
 
-    private const roles = [
+    public const roles = [
         'Administrador del sistema',
         'Administrativo',
         'Jefe de turno',
