@@ -87,7 +87,7 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     /**
-     * @OA\Get(
+     * @OA\Post(
      *     path="/api/auth/logout",
      *     tags={"Auth"},
      *     summary="Logout an user",
