@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');;
+            $table->string('name');
+            $table->text('description')->nullable();
             // Columns from BaseModel
             $table->timestamp('created_at')->nullable()->default(now());
             $table->timestamp('updated_at')->nullable()->default(now());
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('roles');
     }
 };
