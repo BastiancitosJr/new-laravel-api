@@ -4,12 +4,13 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Enums\UserRolesEnum;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -28,6 +29,18 @@ class User extends Authenticatable implements JWTSubject
         'deleted_at',
         'version',
         'role_id',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $visible = [
+        'id',
+        'username',
+        'password',
+        'created_at',
+        'updated_at',
+        'entity'
     ];
 
     /**
@@ -129,5 +142,28 @@ class User extends Authenticatable implements JWTSubject
     public function operator()
     {
         return $this->hasOne(Operator::class);
+    }
+
+    /**
+     * Get the related entity (Admin, Administrative, ShiftManager, Operator, Line) based on the user's role.
+     *
+     * @return mixed
+     */
+    public function entity()
+    {
+        switch ($this->role_id) {
+            case UserRolesEnum::ADMIN->value:
+                return $this->admin();
+            case UserRolesEnum::ADMINISTRATIVE->value:
+                return $this->administrative();
+            case UserRolesEnum::SHIFTMANAGER->value:
+                return $this->shiftManager();
+            case UserRolesEnum::OPERATOR->value:
+                return $this->operator();
+            case UserRolesEnum::LINE->value:
+                return $this->line();
+            default:
+                return null;
+        }
     }
 }
