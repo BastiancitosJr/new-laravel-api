@@ -21,6 +21,45 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+    /**
+     * @OA\Post(
+     *      path="/api/auth/login",
+     *      tags={"Auth"},
+     *      summary="Login an user",
+     *      description="Login an user",
+     *      @OA\RequestBody(
+     *         description="",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 required={"username", "password"},
+     *                 @OA\Property(
+     *                     property="username",
+     *                     type="string",
+     *                     description="The user's username"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password",
+     *                     type="string",
+     *                     description="The user's password"
+     *                 ),
+     *                 example={"username": "app_admin@example.com", "password": "password"}
+     *             )
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation"
+     *       ),
+     *       @OA\Response(
+     *          response="default",
+     *          description="An error occurred."
+     *       )
+     *     )
+     *
+     * Returns a token and the user data if the credentials are valid.
+     */
     public function login()
     {
         $credentials = request(['username', 'password']);
@@ -46,6 +85,23 @@ class AuthController extends Controller
      * Log the user out (Invalidate the token).
      *
      * @return \Illuminate\Http\JsonResponse
+     */
+    /**
+     * @OA\Get(
+     *     path="/api/auth/logout",
+     *     tags={"Auth"},
+     *     summary="Logout an user",
+     *     security={{"bearerAuth":{}}},
+     *     description="Logout an user, the token must be sent in the header.",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation"
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="An error occurred."
+     *     )
+     * )
      */
     public function logout()
     {

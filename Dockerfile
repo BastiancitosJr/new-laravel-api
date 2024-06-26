@@ -52,11 +52,17 @@ FROM oraclebuilder AS composerinstall
 # Install yajra/laravel-oci8 using Composer inside the container
 RUN composer require yajra/laravel-oci8
 
+# Install darkaonline/l5-swagger using Composer inside the container
+RUN composer require darkaonline/l5-swagger
+
 # Install PHP dependencies using Composer
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Dump the Composer autoload
 RUN composer dump-autoload
+
+# Generate the Swagger documentation
+RUN php artisan l5-swagger:generate
 
 # Run the Laravel development server when the container is started
 CMD php artisan serve --host=0.0.0.0 --port=8000
