@@ -42,7 +42,7 @@ docker-compose up --d
 Run the database migrations to set up your database schema:
 
 ```bash
-docker-compose exec php artisan migrate --seed
+docker-compose exec aquachile-api php artisan migrate --seed
 ```
 
 ### 5. Access the Application
@@ -74,5 +74,5 @@ docker-compose down
 You can run any Artisan command using the docker-compose exec command. For example:
 
 ```bash
-docker-compose exec app php artisan migrate:refresh
+docker-compose exec aquachile-api php artisan migrate:refresh --seed
 ```
