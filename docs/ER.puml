@@ -105,7 +105,7 @@ entity Security {
 }
 
 entity MonthlyProgrammingProgress {
-    * mounthly_order : number
+    * monthly_order : number
     --
     * shift_id : uuid <<FK>>
     * line_id : number <<FK>>
