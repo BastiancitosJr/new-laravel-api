@@ -116,6 +116,10 @@ entity Shift{
     --
     * shift : text
     * end_time : timestamp <<nullable>>
+    * created_at : timestamp
+    * updated_at : timestamp
+    * deleted_at : timestamp
+    * version : number
     --
     * shiftmanager_id : number <<FK>>
 }
