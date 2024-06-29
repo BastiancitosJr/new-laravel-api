@@ -14,6 +14,9 @@ class Area extends BaseModel
         'name'
     ];
 
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',

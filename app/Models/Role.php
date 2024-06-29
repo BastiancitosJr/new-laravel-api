@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
+/**
+ * Role model representing the roles table.
+ */
 class Role extends BaseModel
 {
-    use HasFactory;
 
     /**
      * @var array
@@ -16,7 +15,9 @@ class Role extends BaseModel
         'name',
         'description'
     ];
-
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',

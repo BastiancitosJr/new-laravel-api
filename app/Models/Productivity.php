@@ -2,10 +2,48 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Productivity extends Model
+/**
+ * Productivity model representing the productivities kpi table.
+ */
+class Productivity extends BaseModel
 {
-    use HasFactory;
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'packed_tons',
+        'tons_produced',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $visible = [
+        'id',
+        'packed_tons',
+        'tons_produced',
+        'created_at',
+        'updated_at'
+    ];
+
+    /**
+     * Get the line that owns the productivity.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function line()
+    {
+        return $this->belongsTo(Line::class);
+    }
+
+    /**
+     * Get the shift that owns the productivity.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function shift()
+    {
+        return $this->belongsTo(Shift::class);
+    }
 }

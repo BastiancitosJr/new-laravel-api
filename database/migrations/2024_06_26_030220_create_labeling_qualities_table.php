@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('labeling_qualities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('deviations');
+            $table->integer('audits');
+            $table->text('comment');
+            $table->foreignId('line_id')->constrained();
+            $table->uuid('shift_id');
+            $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
+            // Columns from BaseModel
+            $table->timestamp('created_at')->nullable()->default(now());
+            $table->timestamp('updated_at')->nullable()->default(now());
+            $table->softDeletes();
+            $table->integer('version')->nullable()->default(1);
         });
     }
 

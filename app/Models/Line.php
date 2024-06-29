@@ -16,6 +16,9 @@ class Line extends BaseModel
         'user_id'
     ];
 
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',
@@ -52,5 +55,55 @@ class Line extends BaseModel
     public function operators()
     {
         return $this->hasMany(Operator::class);
+    }
+
+    /**
+     * Get the productivity for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function productivity()
+    {
+        return $this->hasOne(Productivity::class);
+    }
+
+    /**
+     * Get the labeling quality for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function labelingQuality()
+    {
+        return $this->hasOne(LabelingQuality::class);
+    }
+
+    /**
+     * Get the cleanliness for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function cleanliness()
+    {
+        return $this->hasOne(Cleanliness::class);
+    }
+
+    /**
+     * Get the peer observations for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function peerObservations()
+    {
+        return $this->hasOne(PeerObservations::class);
+    }
+
+    /**
+     * Get the mounthly programming progress for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function mounthlyProgrammingProgress()
+    {
+        return $this->hasOne(MounthlyProgrammingProgress::class);
     }
 }

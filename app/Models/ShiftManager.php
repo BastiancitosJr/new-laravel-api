@@ -16,6 +16,9 @@ class ShiftManager extends BaseModel
         'area_id'
     ];
 
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',

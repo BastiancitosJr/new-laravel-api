@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('shift');
+            $table->text('shift');
             $table->timestamp('end_time')->nullable();
-            $table->timestamps();
+            $table->foreignId('shift_manager_id')->constrained();
+
+            $table->timestamp('created_at')->nullable()->default(now());
+            $table->timestamp('updated_at')->nullable()->default(now());
+            $table->softDeletes();
+            $table->integer('version')->nullable()->default(1);
         });
     }
 

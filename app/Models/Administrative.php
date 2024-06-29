@@ -15,6 +15,9 @@ class Administrative extends BaseModel
         'user_id'
     ];
 
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',

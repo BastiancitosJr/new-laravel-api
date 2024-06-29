@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Admin extends Model
+/**
+ * Admin model representing the admins table.
+ */
+class Admin extends BaseModel
 {
     /**
      * @var array
@@ -14,6 +15,9 @@ class Admin extends Model
         'user_id'
     ];
 
+    /**
+     * @var array
+     */
     protected $visible = [
         'id',
         'name',
