@@ -72,8 +72,9 @@ entity Productivity {
 }
 
 entity LabelingQuality {
-    * n_deviations : number
-    * n_audits : number
+    * deviations : number
+    * audits : number
+    * comment : text
     --
     * shift_id : uuid <<FK>>
     * line_id : number <<FK>>
@@ -89,6 +90,7 @@ entity Cleanliness {
 
 entity PeerObservations {
     * result : number
+    * comment : text
     --
     * shift_id : uuid <<FK>>
     * line_id : number <<FK>>
@@ -96,6 +98,7 @@ entity PeerObservations {
 
 entity Security {
     * result : number
+    * comment : text
     --
     * shift_id : uuid <<FK>>
     * line_id : number <<FK>>
@@ -120,7 +123,7 @@ entity Shift{
 note bottom of BaseModel
     This is the base entity
     for all entities.
-    Excluding the Shifts entity.
+    Excluding the Shift entity.
 end note
 
 Line ||--|| User
