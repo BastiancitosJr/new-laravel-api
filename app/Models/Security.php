@@ -10,7 +10,9 @@ class Security extends BaseModel
 
     protected $fillable = [
         'result',
-        'comment'
+        'comment',
+        'line_id',
+        'shift_id'
     ];
 
     /**

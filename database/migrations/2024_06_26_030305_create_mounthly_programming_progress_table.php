@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mounthly_programming_progress', function (Blueprint $table) {
+        Schema::create('monthly_programming_progress', function (Blueprint $table) {
             $table->id();
-            $table->integer('mounthly_order');
+            $table->integer('monthly_order');
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');

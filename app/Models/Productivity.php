@@ -14,6 +14,8 @@ class Productivity extends BaseModel
     protected $fillable = [
         'packed_tons',
         'tons_produced',
+        'line_id',
+        'shift_id'
     ];
 
     /**

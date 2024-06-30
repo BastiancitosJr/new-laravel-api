@@ -104,6 +104,6 @@ class Line extends BaseModel
      */
     public function mounthlyProgrammingProgress()
     {
-        return $this->hasOne(MounthlyProgrammingProgress::class);
+        return $this->hasOne(MonthlyProgrammingProgress::class);
     }
 }

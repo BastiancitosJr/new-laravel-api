@@ -45,4 +45,14 @@ class ShiftManager extends BaseModel
     {
         return $this->belongsTo(Area::class);
     }
+
+    /**
+     * Get the shift manager's shift.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function shifts()
+    {
+        return $this->hasMany(Shift::class);
+    }
 }

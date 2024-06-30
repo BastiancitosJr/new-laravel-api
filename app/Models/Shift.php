@@ -35,6 +35,7 @@ class Shift extends Model
     protected $fillable = [
         "shift",
         "end_time",
+        'shift_manager_id'
     ];
 
     /**
@@ -105,8 +106,8 @@ class Shift extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function mounthlyProgrammingProgress()
+    public function monthlyProgrammingProgress()
     {
-        return $this->hasOne(MounthlyProgrammingProgress::class);
+        return $this->hasOne(MonthlyProgrammingProgress::class);
     }
 }

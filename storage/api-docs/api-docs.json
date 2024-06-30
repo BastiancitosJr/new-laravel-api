@@ -277,6 +277,965 @@
                 ]
             }
         },
+        "/api/cleanliness": {
+            "get": {
+                "tags": [
+                    "KPI Cleanliness"
+                ],
+                "summary": "Show all cleanliness kpi",
+                "description": "Returns a list of cleanliness kpi",
+                "operationId": "16586d3d04359c09586b17924db5856c",
+                "responses": {
+                    "200": {
+                        "description": "Show all cleanliness kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cleanliness-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Cleanliness"
+                ],
+                "summary": "Show all cleanliness kpi by line",
+                "description": "Returns a list of cleanliness kpi by line",
+                "operationId": "08ddb87f0eeb5bb4a72655d3dc611d7b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all cleanliness kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cleanliness-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Cleanliness"
+                ],
+                "summary": "Show all cleanliness kpi by shift",
+                "description": "Returns a list of cleanliness kpi by shift",
+                "operationId": "4812c9582e0ab88251dbebfafe846c21",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all cleanliness kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cleanliness/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Cleanliness"
+                ],
+                "summary": "Create a new cleanliness KPI",
+                "description": "Creates a new cleanliness KPI with the received data",
+                "operationId": "654ebafefc55a3b60f6ad1100ac39cf0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Cleanliness KPI object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "done",
+                                    "comment",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "done": {
+                                        "description": "The cleanliness status",
+                                        "type": "boolean"
+                                    },
+                                    "comment": {
+                                        "description": "The cleanliness comment",
+                                        "type": "boolean"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "done": true,
+                                    "comment": "Este es un comentario",
+                                    "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/labeling-quality": {
+            "get": {
+                "tags": [
+                    "KPI Labeling Quality"
+                ],
+                "summary": "Show all labeling quality kpi",
+                "description": "Returns a list of labeling quality kpi",
+                "operationId": "1c3a634617c83c11248aaa55cf736406",
+                "responses": {
+                    "200": {
+                        "description": "Show all labeling quality kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/labeling-quality-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Labeling Quality"
+                ],
+                "summary": "Show all labeling quality kpi by line",
+                "description": "Returns a list of labeling quality kpi by line",
+                "operationId": "682fc2df67b2305e49767247c37a553b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all labeling quality kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/labeling-quality-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Labeling Quality"
+                ],
+                "summary": "Show all labeling quality kpi by shift",
+                "description": "Returns a list of labeling quality kpi by shift",
+                "operationId": "7423cc7938c1e834e79204439bb02e7a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all labeling quality kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/labeling-quality/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Labeling Quality"
+                ],
+                "summary": "Create a new labeling quality KPI",
+                "description": "Creates a new labeling quality KPI with the received data",
+                "operationId": "565562b77645d897c39a4267322cbfe1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "labeling quality KPI object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "deviations",
+                                    "audits",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "deviations": {
+                                        "description": "The deviations of the KPI",
+                                        "type": "integer"
+                                    },
+                                    "audits": {
+                                        "description": "The audits of the KPI",
+                                        "type": "integer"
+                                    },
+                                    "comment": {
+                                        "description": "The comment of the KPI",
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "deviations": 1,
+                                    "audits": 4,
+                                    "comment": "Este es un comentario",
+                                    "uuid": "123e4567-e89b-12d3-a456-426614174000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/monthly-pp": {
+            "get": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Show all monthly programming progress kpi",
+                "description": "Returns a list of monthly programming progress kpi",
+                "operationId": "3439d1c332428f98185bc1cdaca71658",
+                "responses": {
+                    "200": {
+                        "description": "Show all monthly programming progress kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/monthly-pp-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Show all monthly programming progress kpi by line",
+                "description": "Returns a list of monthly programming progress kpi by line",
+                "operationId": "0150d81604fb730adc6e0dcc52c97bae",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all monthly programming progress kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/monthly-pp-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Show all monthly programming progress kpi by shift",
+                "description": "Returns a list of monthly programming progress kpi by shift",
+                "operationId": "7e78a041d4fc152b61686e957b9dbd67",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all monthly programming progress kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/monthly-pp/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Create a new monthly programming progress KPI",
+                "description": "Creates a new monthly programming progress KPI with the received data",
+                "operationId": "de4d6caee1bebb612f69dda683dee8e6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "monthly programming progress KPI object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "monthly_order",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "monthly_order": {
+                                        "description": "The monthly programming order",
+                                        "type": "integer"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "monthly_order": 40000,
+                                    "uuid": "123e4567-e89b-12d3-a456-426614174000"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/peer-observations": {
+            "get": {
+                "tags": [
+                    "KPI Peer Observations"
+                ],
+                "summary": "Show all peer observations kpi",
+                "description": "Returns a list of peer observations kpi",
+                "operationId": "9d5e74fae971341c22ef5108f29960eb",
+                "responses": {
+                    "200": {
+                        "description": "Show all peer observations kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/peer-observations-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Peer Observations"
+                ],
+                "summary": "Show all peer observations kpi by line",
+                "description": "Returns a list of peer observations kpi by line",
+                "operationId": "dcac0652a1b8def0f183431a61963902",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all peer observations kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/peer-observations-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Peer Observations"
+                ],
+                "summary": "Show all peer observations kpi by shift",
+                "description": "Returns a list of peer observations kpi by shift",
+                "operationId": "b5bbbf827acdf079854183dee3640135",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all peer observations kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/peer-observations/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Peer Observations"
+                ],
+                "summary": "Create a new peer observations KPI",
+                "description": "Creates a new peer observations KPI with the received data",
+                "operationId": "9ef14718fb19023b6748953ba090613e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "peer observations KPI object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "result",
+                                    "comment",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "result": {
+                                        "description": "The peer observations status",
+                                        "type": "integer"
+                                    },
+                                    "comment": {
+                                        "description": "The peer observations comment",
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "result": 2,
+                                    "comment": "Este es un comentario",
+                                    "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/productivity": {
+            "get": {
+                "tags": [
+                    "KPI Productivity"
+                ],
+                "summary": "Show all productivity kpi",
+                "description": "Returns a list of productivity kpi",
+                "operationId": "38744025d7cc0ac4204295b71f0cd846",
+                "responses": {
+                    "200": {
+                        "description": "Show all productivity kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/productivity-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Productivity"
+                ],
+                "summary": "Show all productivity kpi by line",
+                "description": "Returns a list of productivity kpi by line",
+                "operationId": "5cc07ecaa0d6bfe4538fe12f68a36f72",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all productivity kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/productivity-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Productivity"
+                ],
+                "summary": "Show all productivity kpi by shift",
+                "description": "Returns a list of productivity kpi by shift",
+                "operationId": "718c7244d6504eaa1ef65a6c129565ff",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all productivity kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/productivity/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Productivity"
+                ],
+                "summary": "Create a new productivity KPI",
+                "description": "Creates a new productivity KPI with the received data",
+                "operationId": "0bde265abd6d6c5ef94e9cb9667dd296",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Productivity KPI  object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "packed_tons",
+                                    "tons_produced",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "packed_tons": {
+                                        "description": "The packed tons of the KPI",
+                                        "type": "string"
+                                    },
+                                    "tons_produced": {
+                                        "description": "The tons produced of the KPI",
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "packed_tons": 4,
+                                    "tons_produced": 1000,
+                                    "uuid": "d7f3c2f3-0d4c-4f2e-8b5e-4e6c3c3f4e2c"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/security": {
+            "get": {
+                "tags": [
+                    "KPI Security"
+                ],
+                "summary": "Show all security kpi",
+                "description": "Returns a list of security kpi",
+                "operationId": "0832fb4485b7e49e956430ab3dc1bd3a",
+                "responses": {
+                    "200": {
+                        "description": "Show all security kpi."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/security-line/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Security"
+                ],
+                "summary": "Show all security kpi by line",
+                "description": "Returns a list of security kpi by line",
+                "operationId": "9d3a07ecc45a4e37ab1ba08518ba6e08",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all security kpi by line."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/security-shift/{id}": {
+            "get": {
+                "tags": [
+                    "KPI Security"
+                ],
+                "summary": "Show all security kpi by shift",
+                "description": "Returns a list of security kpi by shift",
+                "operationId": "7691d0be9b266f21b48edf6bf1524c4a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Shift ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show all security kpi by shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/security/{id}": {
+            "post": {
+                "tags": [
+                    "KPI Security"
+                ],
+                "summary": "Create a new security KPI",
+                "description": "Creates a new security KPI with the received data",
+                "operationId": "96c710fe53aa6389e55a797302a1d33f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Line ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "security KPI object that needs to be created",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "result",
+                                    "comment",
+                                    "line_name"
+                                ],
+                                "properties": {
+                                    "result": {
+                                        "description": "The peer observations status",
+                                        "type": "integer"
+                                    },
+                                    "comment": {
+                                        "description": "The peer observations comment",
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "description": "The shift uuid",
+                                        "type": "uuid"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "result": 2,
+                                    "comment": "Este es un comentario",
+                                    "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/lines": {
             "get": {
                 "tags": [
@@ -1050,6 +2009,138 @@
                 "responses": {
                     "204": {
                         "description": "User deleted successfully."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shift": {
+            "get": {
+                "tags": [
+                    "Shifts"
+                ],
+                "summary": "Show all shifts",
+                "description": "Returns a list of shifts",
+                "operationId": "1f91100716408eac2147c6344b348818",
+                "responses": {
+                    "200": {
+                        "description": "Show all shifts."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shift/{id}": {
+            "get": {
+                "tags": [
+                    "Shifts"
+                ],
+                "summary": "Show shift by ID",
+                "description": "Returns an shift",
+                "operationId": "7e3303c17cba7dab923a97aaa46a829e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show only one shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shift/active": {
+            "get": {
+                "tags": [
+                    "Shifts"
+                ],
+                "summary": "Show the active shift",
+                "description": "Returns an active shift",
+                "operationId": "031004fffa3feed352e97e6e87b66872",
+                "responses": {
+                    "200": {
+                        "description": "Show the active shift."
+                    },
+                    "404": {
+                        "description": "No active shift."
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shift/open": {
+            "post": {
+                "tags": [
+                    "Shifts"
+                ],
+                "summary": "Start a new shift",
+                "description": "Start a new shift",
+                "operationId": "c2256dc0ac609173feda3d50de037641",
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/shift/close": {
+            "post": {
+                "tags": [
+                    "Shifts"
+                ],
+                "summary": "Close the active shift",
+                "description": "Returns a active shift",
+                "operationId": "b63d2deb180564633a0247df44b24dea",
+                "responses": {
+                    "200": {
+                        "description": "Close the active shift."
+                    },
+                    "404": {
+                        "description": "No active shift."
                     },
                     "default": {
                         "description": "An error occurred."

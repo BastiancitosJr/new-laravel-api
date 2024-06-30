@@ -13,7 +13,9 @@ class Cleanliness extends BaseModel
      */
     protected $fillable = [
         'done',
-        'comment'
+        'comment',
+        'line_id',
+        'shift_id'
     ];
 
     /**

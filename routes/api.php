@@ -3,11 +3,18 @@
 use App\Enums\UserRolesEnum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\Resources\LineController;
 use App\Http\Controllers\Resources\UserController;
 use App\Http\Controllers\Resources\OperatorController;
+use App\Http\Controllers\Resources\Kpi\SecurityController;
 use App\Http\Controllers\Resources\ShiftManagerController;
 use App\Http\Controllers\Resources\AdministrativeController;
+use App\Http\Controllers\Resources\Kpi\CleanlinessController;
+use App\Http\Controllers\Resources\Kpi\ProductivityController;
+use App\Http\Controllers\Resources\Kpi\LabelingQualityController;
+use App\Http\Controllers\Resources\Kpi\PeerObservationsController;
+use App\Http\Controllers\Resources\Kpi\MonthlyProgrammingProgressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,11 +68,44 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('operators/{id}', [OperatorController::class, 'destroy']);
 });
 
-// Route::middleware(['auth:api', 'role:' . UserRolesEnum::SHIFTMANAGER->value])->group(function () {
-//     Route::get('/shift-manager', function () {
-//         return response()->json(['data' => 'This is a shift manager route']);
-//     });
-// });
+Route::middleware(['auth:api', 'role:' . UserRolesEnum::SHIFTMANAGER->value])->group(function () {
+
+    Route::get('productivity', [ProductivityController::class, 'index']);
+    Route::get('productivity-line/{id}', [ProductivityController::class, 'indexLine']);
+    Route::get('productivity-shift/{id}', [ProductivityController::class, 'indexShift']);
+    Route::post('productivity/{id}', [ProductivityController::class, 'store']);
+
+    Route::get('labeling-quality', [LabelingQualityController::class, 'index']);
+    Route::get('labeling-quality-line/{id}', [LabelingQualityController::class, 'indexLine']);
+    Route::get('labeling-quality-shift/{id}', [LabelingQualityController::class, 'indexShift']);
+    Route::post('labeling-quality/{id}', [LabelingQualityController::class, 'store']);
+
+    Route::get('monthly-pp', [MonthlyProgrammingProgressController::class, 'index']);
+    Route::get('monthly-pp-line/{id}', [MonthlyProgrammingProgressController::class, 'indexLine']);
+    Route::get('monthly-pp-shift/{id}', [MonthlyProgrammingProgressController::class, 'indexShift']);
+    Route::post('monthly-pp/{id}', [MonthlyProgrammingProgressController::class, 'store']);
+
+    Route::get('peer-observations', [PeerObservationsController::class, 'index']);
+    Route::get('peer-observations-line/{id}', [PeerObservationsController::class, 'indexLine']);
+    Route::get('peer-observations-shift/{id}', [PeerObservationsController::class, 'indexShift']);
+    Route::post('peer-observations/{id}', [PeerObservationsController::class, 'store']);
+
+    Route::get('security', [SecurityController::class, 'index']);
+    Route::get('security-line/{id}', [SecurityController::class, 'indexLine']);
+    Route::get('security-shift/{id}', [SecurityController::class, 'indexShift']);
+    Route::post('security/{id}', [SecurityController::class, 'store']);
+
+    Route::get('cleanliness', [CleanlinessController::class, 'index']);
+    Route::get('cleanliness-line/{id}', [CleanlinessController::class, 'indexLine']);
+    Route::get('cleanliness-shift/{id}', [CleanlinessController::class, 'indexShift']);
+    Route::post('cleanliness/{id}', [CleanlinessController::class, 'store']);
+
+    Route::get('shift', [ShiftController::class, 'index']);
+    Route::get('shift/active', [ShiftController::class, 'active']);
+    Route::get('shift/{id}', [ShiftController::class, 'show']);
+    Route::post('shift/open', [ShiftController::class, 'store']);
+    Route::post('shift/close', [ShiftController::class, 'close']);
+});
 
 // Auth routes
 Route::group([

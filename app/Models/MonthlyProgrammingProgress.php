@@ -5,14 +5,16 @@ namespace App\Models;
 /**
  * MounthlyProgrammingProgress model representing the mounthly_programming_progresses kpi table.
  */
-class MounthlyProgrammingProgress extends BaseModel
+class MonthlyProgrammingProgress extends BaseModel
 {
 
     /**
      * @var array
      */
     protected $fillable = [
-        'mounthly_order',
+        'monthly_order',
+        'line_id',
+        'shift_id'
     ];
 
     /**

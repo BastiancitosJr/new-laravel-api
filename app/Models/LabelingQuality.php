@@ -14,7 +14,9 @@ class LabelingQuality extends BaseModel
     protected $fillable = [
         'deviations',
         'audits',
-        'comment'
+        'comment',
+        'line_id',
+        'shift_id'
     ];
 
     /**
