@@ -84,6 +84,7 @@ Route::middleware(['auth:api', 'role:' . UserRolesEnum::SHIFTMANAGER->value])->g
     Route::get('monthly-pp-line/{id}', [MonthlyProgrammingProgressController::class, 'indexLine']);
     Route::get('monthly-pp-shift/{id}', [MonthlyProgrammingProgressController::class, 'indexShift']);
     Route::post('monthly-pp/{id}', [MonthlyProgrammingProgressController::class, 'store']);
+    Route::put('monthly-pp/{id}', [MonthlyProgrammingProgressController::class, 'update']);
 
     Route::get('peer-observations', [PeerObservationsController::class, 'index']);
     Route::get('peer-observations-line/{id}', [PeerObservationsController::class, 'indexLine']);

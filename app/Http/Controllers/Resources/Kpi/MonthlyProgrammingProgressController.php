@@ -254,4 +254,83 @@ class MonthlyProgrammingProgressController extends Controller
             ], 500);
         }
     }
+
+    /**
+     *  Update the specified resource in storage.
+     */
+    /**
+     * @OA\Put(
+     *      path="/api/monthly-pp/{id}",
+     *      operationId="updateMonthlyProgrammingProgress",
+     *      tags={"KPI Monthly Programming Progress"},
+     *      summary="Update existing Monthly Programming Progress KPI",
+     *      security={{"bearerAuth":{}}},
+     *      description="Returns a string message",
+     *      @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Resource ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *      ),
+     *      @OA\RequestBody(
+     *         description="Monthly Programming Progress KPI object that needs to be updated.",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="monthly_order",
+     *                     type="string",
+     *                     description="The monthly order of the monthly programming progress"
+     *                 ),
+     *                 example={"monthly_order": 50000}
+     *             )
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation"
+     *       ),
+     *       @OA\Response(
+     *          response="default",
+     *          description="An error occurred."
+     *       )
+     *     )
+     */
+    public function update(Request $request, string $id)
+    {
+        try {
+            $this->validate($request, [
+                'monthly_order' => 'required|numeric',
+            ]);
+
+            $monthly_programming = MonthlyProgrammingProgress::find($id);
+            if (!$monthly_programming) {
+                return response()->json([
+                    'message' => 'No se ha encontrado el progreso de programación mensual',
+                ], 404);
+            }
+            $monthly_programming->update([
+                'monthly_order' => $request->monthly_order,
+            ]);
+
+            return response()->json([
+                'message' => 'Se ha actualizado el progreso de programación mensual correctamente',
+                'kpi' => $monthly_programming
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'Error de validación',
+                'errors' => $e->errors(),
+            ], 422);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Se ha producido un error al actualizar el progreso de programación mensual',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

@@ -694,6 +694,58 @@
             }
         },
         "/api/monthly-pp/{id}": {
+            "put": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Update existing Monthly Programming Progress KPI",
+                "description": "Returns a string message",
+                "operationId": "updateMonthlyProgrammingProgress",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Monthly Programming Progress KPI object that needs to be updated.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "monthly_order": {
+                                        "description": "The monthly order of the monthly programming progress",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "monthly_order": "existent administrative"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "KPI Monthly Programming Progress"

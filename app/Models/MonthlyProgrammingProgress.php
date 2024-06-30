@@ -22,7 +22,7 @@ class MonthlyProgrammingProgress extends BaseModel
      */
     protected $visible = [
         'id',
-        'mounthly_order',
+        'monthly_order',
         'created_at',
         'updated_at'
     ];
