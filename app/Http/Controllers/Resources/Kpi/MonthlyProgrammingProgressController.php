@@ -15,7 +15,7 @@ class MonthlyProgrammingProgressController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/monthly-pp",
+     *     path="/api/monthly-pps",
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Show all monthly programming progress kpi",
      *      security={{"bearerAuth":{}}},
@@ -53,7 +53,7 @@ class MonthlyProgrammingProgressController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/monthly-pp-line/{id}",
+     *     path="/api/monthly-pps-line/{id}",
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Show all monthly programming progress kpi by line",
      *      security={{"bearerAuth":{}}},
@@ -105,7 +105,7 @@ class MonthlyProgrammingProgressController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/monthly-pp-shift/{id}",
+     *     path="/api/monthly-pps-shift/{id}",
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Show all monthly programming progress kpi by shift",
      *      security={{"bearerAuth":{}}},
@@ -159,7 +159,7 @@ class MonthlyProgrammingProgressController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/monthly-pp/{id}",
+     *      path="/api/monthly-pps/{id}",
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Create a new monthly programming progress KPI",
      *      security={{"bearerAuth":{}}},
@@ -260,7 +260,7 @@ class MonthlyProgrammingProgressController extends Controller
      */
     /**
      * @OA\Put(
-     *      path="/api/monthly-pp/{id}",
+     *      path="/api/monthly-pps/{id}",
      *      operationId="updateMonthlyProgrammingProgress",
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Update existing Monthly Programming Progress KPI",

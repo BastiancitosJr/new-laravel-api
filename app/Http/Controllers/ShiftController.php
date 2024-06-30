@@ -12,7 +12,7 @@ class ShiftController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/shift",
+     *     path="/api/shifts",
      *      tags={"Shifts"},
      *      summary="Show all shifts",
      *      security={{"bearerAuth":{}}},
@@ -51,7 +51,7 @@ class ShiftController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/shift/{id}",
+     *     path="/api/shifts/{id}",
      *     tags={"Shifts"},
      *     summary="Show shift by ID",
      *     security={{"bearerAuth":{}}},
@@ -99,7 +99,7 @@ class ShiftController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/shift/active",
+     *     path="/api/shifts/active",
      *      tags={"Shifts"},
      *      summary="Show the active shift",
      *      security={{"bearerAuth":{}}},
@@ -142,7 +142,7 @@ class ShiftController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/shift/open",
+     *      path="/api/shifts/open",
      *      tags={"Shifts"},
      *      summary="Start a new shift",
      *      security={{"bearerAuth":{}}},
@@ -198,7 +198,7 @@ class ShiftController extends Controller
      */
     /**
      * @OA\Post(
-     *     path="/api/shift/close",
+     *     path="/api/shifts/close",
      *      tags={"Shifts"},
      *      summary="Close the active shift",
      *      security={{"bearerAuth":{}}},

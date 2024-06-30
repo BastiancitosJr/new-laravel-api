@@ -70,42 +70,42 @@ Route::middleware('auth:api')->group(function () {
 
 Route::middleware(['auth:api', 'role:' . UserRolesEnum::SHIFTMANAGER->value])->group(function () {
 
-    Route::get('productivity', [ProductivityController::class, 'index']);
-    Route::get('productivity-line/{id}', [ProductivityController::class, 'indexLine']);
-    Route::get('productivity-shift/{id}', [ProductivityController::class, 'indexShift']);
-    Route::post('productivity/{id}', [ProductivityController::class, 'store']);
+    Route::get('productivities', [ProductivityController::class, 'index']);
+    Route::get('productivities-line/{id}', [ProductivityController::class, 'indexLine']);
+    Route::get('productivities-shift/{id}', [ProductivityController::class, 'indexShift']);
+    Route::post('productivities/{id}', [ProductivityController::class, 'store']);
 
-    Route::get('labeling-quality', [LabelingQualityController::class, 'index']);
-    Route::get('labeling-quality-line/{id}', [LabelingQualityController::class, 'indexLine']);
-    Route::get('labeling-quality-shift/{id}', [LabelingQualityController::class, 'indexShift']);
-    Route::post('labeling-quality/{id}', [LabelingQualityController::class, 'store']);
+    Route::get('labeling-qualities', [LabelingQualityController::class, 'index']);
+    Route::get('labeling-qualities-line/{id}', [LabelingQualityController::class, 'indexLine']);
+    Route::get('labeling-qualities-shift/{id}', [LabelingQualityController::class, 'indexShift']);
+    Route::post('labeling-qualities/{id}', [LabelingQualityController::class, 'store']);
 
-    Route::get('monthly-pp', [MonthlyProgrammingProgressController::class, 'index']);
-    Route::get('monthly-pp-line/{id}', [MonthlyProgrammingProgressController::class, 'indexLine']);
-    Route::get('monthly-pp-shift/{id}', [MonthlyProgrammingProgressController::class, 'indexShift']);
-    Route::post('monthly-pp/{id}', [MonthlyProgrammingProgressController::class, 'store']);
-    Route::put('monthly-pp/{id}', [MonthlyProgrammingProgressController::class, 'update']);
+    Route::get('monthly-pps', [MonthlyProgrammingProgressController::class, 'index']);
+    Route::get('monthly-pps-line/{id}', [MonthlyProgrammingProgressController::class, 'indexLine']);
+    Route::get('monthly-pps-shift/{id}', [MonthlyProgrammingProgressController::class, 'indexShift']);
+    Route::post('monthly-pps/{id}', [MonthlyProgrammingProgressController::class, 'store']);
+    Route::put('monthly-pps/{id}', [MonthlyProgrammingProgressController::class, 'update']);
 
     Route::get('peer-observations', [PeerObservationsController::class, 'index']);
     Route::get('peer-observations-line/{id}', [PeerObservationsController::class, 'indexLine']);
     Route::get('peer-observations-shift/{id}', [PeerObservationsController::class, 'indexShift']);
     Route::post('peer-observations/{id}', [PeerObservationsController::class, 'store']);
 
-    Route::get('security', [SecurityController::class, 'index']);
-    Route::get('security-line/{id}', [SecurityController::class, 'indexLine']);
-    Route::get('security-shift/{id}', [SecurityController::class, 'indexShift']);
-    Route::post('security/{id}', [SecurityController::class, 'store']);
+    Route::get('securities', [SecurityController::class, 'index']);
+    Route::get('securities-line/{id}', [SecurityController::class, 'indexLine']);
+    Route::get('securities-shift/{id}', [SecurityController::class, 'indexShift']);
+    Route::post('securities/{id}', [SecurityController::class, 'store']);
 
-    Route::get('cleanliness', [CleanlinessController::class, 'index']);
-    Route::get('cleanliness-line/{id}', [CleanlinessController::class, 'indexLine']);
-    Route::get('cleanliness-shift/{id}', [CleanlinessController::class, 'indexShift']);
-    Route::post('cleanliness/{id}', [CleanlinessController::class, 'store']);
+    Route::get('cleanlinesses', [CleanlinessController::class, 'index']);
+    Route::get('cleanlinesses-line/{id}', [CleanlinessController::class, 'indexLine']);
+    Route::get('cleanlinesses-shift/{id}', [CleanlinessController::class, 'indexShift']);
+    Route::post('cleanlinesses/{id}', [CleanlinessController::class, 'store']);
 
-    Route::get('shift', [ShiftController::class, 'index']);
-    Route::get('shift/active', [ShiftController::class, 'active']);
-    Route::get('shift/{id}', [ShiftController::class, 'show']);
-    Route::post('shift/open', [ShiftController::class, 'store']);
-    Route::post('shift/close', [ShiftController::class, 'close']);
+    Route::get('shifts', [ShiftController::class, 'index']);
+    Route::get('shifts/active', [ShiftController::class, 'active']);
+    Route::get('shifts/{id}', [ShiftController::class, 'show']);
+    Route::post('shifts/open', [ShiftController::class, 'store']);
+    Route::post('shifts/close', [ShiftController::class, 'close']);
 });
 
 // Auth routes

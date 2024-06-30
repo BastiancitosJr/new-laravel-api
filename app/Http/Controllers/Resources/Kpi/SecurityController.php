@@ -15,7 +15,7 @@ class SecurityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/security",
+     *     path="/api/securities",
      *      tags={"KPI Security"},
      *      summary="Show all security kpi",
      *      security={{"bearerAuth":{}}},
@@ -53,7 +53,7 @@ class SecurityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/security-line/{id}",
+     *     path="/api/securities-line/{id}",
      *      tags={"KPI Security"},
      *      summary="Show all security kpi by line",
      *      security={{"bearerAuth":{}}},
@@ -105,7 +105,7 @@ class SecurityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/security-shift/{id}",
+     *     path="/api/securities-shift/{id}",
      *      tags={"KPI Security"},
      *      summary="Show all security kpi by shift",
      *      security={{"bearerAuth":{}}},
@@ -159,7 +159,7 @@ class SecurityController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/security/{id}",
+     *      path="/api/securities/{id}",
      *      tags={"KPI Security"},
      *      summary="Create a new security KPI",
      *      security={{"bearerAuth":{}}},

@@ -15,7 +15,7 @@ class LabelingQualityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/labeling-quality",
+     *     path="/api/labeling-qualities",
      *      tags={"KPI Labeling Quality"},
      *      summary="Show all labeling quality kpi",
      *      security={{"bearerAuth":{}}},
@@ -53,7 +53,7 @@ class LabelingQualityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/labeling-quality-line/{id}",
+     *     path="/api/labeling-qualities-line/{id}",
      *      tags={"KPI Labeling Quality"},
      *      summary="Show all labeling quality kpi by line",
      *      security={{"bearerAuth":{}}},
@@ -105,7 +105,7 @@ class LabelingQualityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/labeling-quality-shift/{id}",
+     *     path="/api/labeling-qualities-shift/{id}",
      *      tags={"KPI Labeling Quality"},
      *      summary="Show all labeling quality kpi by shift",
      *      security={{"bearerAuth":{}}},
@@ -159,7 +159,7 @@ class LabelingQualityController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/labeling-quality/{id}",
+     *      path="/api/labeling-qualities/{id}",
      *      tags={"KPI Labeling Quality"},
      *      summary="Create a new labeling quality KPI",
      *      security={{"bearerAuth":{}}},

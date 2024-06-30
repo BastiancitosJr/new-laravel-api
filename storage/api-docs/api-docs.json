@@ -277,14 +277,14 @@
                 ]
             }
         },
-        "/api/cleanliness": {
+        "/api/cleanlinesses": {
             "get": {
                 "tags": [
                     "KPI Cleanliness"
                 ],
                 "summary": "Show all cleanliness kpi",
                 "description": "Returns a list of cleanliness kpi",
-                "operationId": "16586d3d04359c09586b17924db5856c",
+                "operationId": "38423dad1c7de97fa2d74da161899f55",
                 "responses": {
                     "200": {
                         "description": "Show all cleanliness kpi."
@@ -300,14 +300,14 @@
                 ]
             }
         },
-        "/api/cleanliness-line/{id}": {
+        "/api/cleanlinesses-line/{id}": {
             "get": {
                 "tags": [
                     "KPI Cleanliness"
                 ],
                 "summary": "Show all cleanliness kpi by line",
                 "description": "Returns a list of cleanliness kpi by line",
-                "operationId": "08ddb87f0eeb5bb4a72655d3dc611d7b",
+                "operationId": "2d3820a730400e2c6880366daf88d6f9",
                 "parameters": [
                     {
                         "name": "id",
@@ -334,14 +334,14 @@
                 ]
             }
         },
-        "/api/cleanliness-shift/{id}": {
+        "/api/cleanlinesses-shift/{id}": {
             "get": {
                 "tags": [
                     "KPI Cleanliness"
                 ],
                 "summary": "Show all cleanliness kpi by shift",
                 "description": "Returns a list of cleanliness kpi by shift",
-                "operationId": "4812c9582e0ab88251dbebfafe846c21",
+                "operationId": "032ab72ccea2ae8fde4d7f3d76dd186b",
                 "parameters": [
                     {
                         "name": "id",
@@ -368,14 +368,14 @@
                 ]
             }
         },
-        "/api/cleanliness/{id}": {
+        "/api/cleanlinesses/{id}": {
             "post": {
                 "tags": [
                     "KPI Cleanliness"
                 ],
                 "summary": "Create a new cleanliness KPI",
                 "description": "Creates a new cleanliness KPI with the received data",
-                "operationId": "654ebafefc55a3b60f6ad1100ac39cf0",
+                "operationId": "12050b70b6c715a5baf670250433e317",
                 "parameters": [
                     {
                         "name": "id",
@@ -437,14 +437,14 @@
                 ]
             }
         },
-        "/api/labeling-quality": {
+        "/api/labeling-qualities": {
             "get": {
                 "tags": [
                     "KPI Labeling Quality"
                 ],
                 "summary": "Show all labeling quality kpi",
                 "description": "Returns a list of labeling quality kpi",
-                "operationId": "1c3a634617c83c11248aaa55cf736406",
+                "operationId": "19cd1d4653f013408b74c1261ae516ee",
                 "responses": {
                     "200": {
                         "description": "Show all labeling quality kpi."
@@ -460,14 +460,14 @@
                 ]
             }
         },
-        "/api/labeling-quality-line/{id}": {
+        "/api/labeling-qualities-line/{id}": {
             "get": {
                 "tags": [
                     "KPI Labeling Quality"
                 ],
                 "summary": "Show all labeling quality kpi by line",
                 "description": "Returns a list of labeling quality kpi by line",
-                "operationId": "682fc2df67b2305e49767247c37a553b",
+                "operationId": "714ca9533e4bd9c7b98f1cd577c3c234",
                 "parameters": [
                     {
                         "name": "id",
@@ -494,14 +494,14 @@
                 ]
             }
         },
-        "/api/labeling-quality-shift/{id}": {
+        "/api/labeling-qualities-shift/{id}": {
             "get": {
                 "tags": [
                     "KPI Labeling Quality"
                 ],
                 "summary": "Show all labeling quality kpi by shift",
                 "description": "Returns a list of labeling quality kpi by shift",
-                "operationId": "7423cc7938c1e834e79204439bb02e7a",
+                "operationId": "f937494a55c656a8c4b5cafa40652f0c",
                 "parameters": [
                     {
                         "name": "id",
@@ -528,14 +528,14 @@
                 ]
             }
         },
-        "/api/labeling-quality/{id}": {
+        "/api/labeling-qualities/{id}": {
             "post": {
                 "tags": [
                     "KPI Labeling Quality"
                 ],
                 "summary": "Create a new labeling quality KPI",
                 "description": "Creates a new labeling quality KPI with the received data",
-                "operationId": "565562b77645d897c39a4267322cbfe1",
+                "operationId": "498a33f5c47fd9427afb70a9032747c4",
                 "parameters": [
                     {
                         "name": "id",
@@ -602,14 +602,14 @@
                 ]
             }
         },
-        "/api/monthly-pp": {
+        "/api/monthly-pps": {
             "get": {
                 "tags": [
                     "KPI Monthly Programming Progress"
                 ],
                 "summary": "Show all monthly programming progress kpi",
                 "description": "Returns a list of monthly programming progress kpi",
-                "operationId": "3439d1c332428f98185bc1cdaca71658",
+                "operationId": "edcf39ee31eb83fddb40f83ac751bb85",
                 "responses": {
                     "200": {
                         "description": "Show all monthly programming progress kpi."
@@ -625,14 +625,14 @@
                 ]
             }
         },
-        "/api/monthly-pp-line/{id}": {
+        "/api/monthly-pps-line/{id}": {
             "get": {
                 "tags": [
                     "KPI Monthly Programming Progress"
                 ],
                 "summary": "Show all monthly programming progress kpi by line",
                 "description": "Returns a list of monthly programming progress kpi by line",
-                "operationId": "0150d81604fb730adc6e0dcc52c97bae",
+                "operationId": "6c1eef588702f707fbe9a05946bea0db",
                 "parameters": [
                     {
                         "name": "id",
@@ -659,14 +659,14 @@
                 ]
             }
         },
-        "/api/monthly-pp-shift/{id}": {
+        "/api/monthly-pps-shift/{id}": {
             "get": {
                 "tags": [
                     "KPI Monthly Programming Progress"
                 ],
                 "summary": "Show all monthly programming progress kpi by shift",
                 "description": "Returns a list of monthly programming progress kpi by shift",
-                "operationId": "7e78a041d4fc152b61686e957b9dbd67",
+                "operationId": "add9061d6a91fda6277004bfd6f11875",
                 "parameters": [
                     {
                         "name": "id",
@@ -693,7 +693,7 @@
                 ]
             }
         },
-        "/api/monthly-pp/{id}": {
+        "/api/monthly-pps/{id}": {
             "put": {
                 "tags": [
                     "KPI Monthly Programming Progress"
@@ -726,7 +726,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "monthly_order": "existent administrative"
+                                    "monthly_order": 50000
                                 }
                             }
                         }
@@ -752,7 +752,7 @@
                 ],
                 "summary": "Create a new monthly programming progress KPI",
                 "description": "Creates a new monthly programming progress KPI with the received data",
-                "operationId": "de4d6caee1bebb612f69dda683dee8e6",
+                "operationId": "7fe67b55fb23241f478b2dd9cc71d7f3",
                 "parameters": [
                     {
                         "name": "id",
@@ -968,14 +968,14 @@
                 ]
             }
         },
-        "/api/productivity": {
+        "/api/productivities": {
             "get": {
                 "tags": [
                     "KPI Productivity"
                 ],
                 "summary": "Show all productivity kpi",
                 "description": "Returns a list of productivity kpi",
-                "operationId": "38744025d7cc0ac4204295b71f0cd846",
+                "operationId": "552f9ef162c0d329d4aef93ba7592d12",
                 "responses": {
                     "200": {
                         "description": "Show all productivity kpi."
@@ -991,14 +991,14 @@
                 ]
             }
         },
-        "/api/productivity-line/{id}": {
+        "/api/productivities-line/{id}": {
             "get": {
                 "tags": [
                     "KPI Productivity"
                 ],
                 "summary": "Show all productivity kpi by line",
                 "description": "Returns a list of productivity kpi by line",
-                "operationId": "5cc07ecaa0d6bfe4538fe12f68a36f72",
+                "operationId": "7de658177104eb47499db804cca39053",
                 "parameters": [
                     {
                         "name": "id",
@@ -1025,14 +1025,14 @@
                 ]
             }
         },
-        "/api/productivity-shift/{id}": {
+        "/api/productivities-shift/{id}": {
             "get": {
                 "tags": [
                     "KPI Productivity"
                 ],
                 "summary": "Show all productivity kpi by shift",
                 "description": "Returns a list of productivity kpi by shift",
-                "operationId": "718c7244d6504eaa1ef65a6c129565ff",
+                "operationId": "3372613f78d6bd63702d806b19cc3eb0",
                 "parameters": [
                     {
                         "name": "id",
@@ -1059,14 +1059,14 @@
                 ]
             }
         },
-        "/api/productivity/{id}": {
+        "/api/productivities/{id}": {
             "post": {
                 "tags": [
                     "KPI Productivity"
                 ],
                 "summary": "Create a new productivity KPI",
                 "description": "Creates a new productivity KPI with the received data",
-                "operationId": "0bde265abd6d6c5ef94e9cb9667dd296",
+                "operationId": "0e15567995b9e7a8081d61af1cf1768c",
                 "parameters": [
                     {
                         "name": "id",
@@ -1128,14 +1128,14 @@
                 ]
             }
         },
-        "/api/security": {
+        "/api/securities": {
             "get": {
                 "tags": [
                     "KPI Security"
                 ],
                 "summary": "Show all security kpi",
                 "description": "Returns a list of security kpi",
-                "operationId": "0832fb4485b7e49e956430ab3dc1bd3a",
+                "operationId": "19255c7b0f6a44c4b5125184895e4d4f",
                 "responses": {
                     "200": {
                         "description": "Show all security kpi."
@@ -1151,14 +1151,14 @@
                 ]
             }
         },
-        "/api/security-line/{id}": {
+        "/api/securities-line/{id}": {
             "get": {
                 "tags": [
                     "KPI Security"
                 ],
                 "summary": "Show all security kpi by line",
                 "description": "Returns a list of security kpi by line",
-                "operationId": "9d3a07ecc45a4e37ab1ba08518ba6e08",
+                "operationId": "dcf61fb8a98f90c46abebe62d1c627de",
                 "parameters": [
                     {
                         "name": "id",
@@ -1185,14 +1185,14 @@
                 ]
             }
         },
-        "/api/security-shift/{id}": {
+        "/api/securities-shift/{id}": {
             "get": {
                 "tags": [
                     "KPI Security"
                 ],
                 "summary": "Show all security kpi by shift",
                 "description": "Returns a list of security kpi by shift",
-                "operationId": "7691d0be9b266f21b48edf6bf1524c4a",
+                "operationId": "0a0f07dd018fb7dea60af90afec3c012",
                 "parameters": [
                     {
                         "name": "id",
@@ -1219,14 +1219,14 @@
                 ]
             }
         },
-        "/api/security/{id}": {
+        "/api/securities/{id}": {
             "post": {
                 "tags": [
                     "KPI Security"
                 ],
                 "summary": "Create a new security KPI",
                 "description": "Creates a new security KPI with the received data",
-                "operationId": "96c710fe53aa6389e55a797302a1d33f",
+                "operationId": "bb53d39e9ba4fd9c071efff62989fad3",
                 "parameters": [
                     {
                         "name": "id",

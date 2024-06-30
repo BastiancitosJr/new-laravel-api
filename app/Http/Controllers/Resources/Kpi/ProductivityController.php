@@ -16,7 +16,7 @@ class ProductivityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/productivity",
+     *     path="/api/productivities",
      *      tags={"KPI Productivity"},
      *      summary="Show all productivity kpi",
      *      security={{"bearerAuth":{}}},
@@ -54,7 +54,7 @@ class ProductivityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/productivity-line/{id}",
+     *     path="/api/productivities-line/{id}",
      *      tags={"KPI Productivity"},
      *      summary="Show all productivity kpi by line",
      *      security={{"bearerAuth":{}}},
@@ -106,7 +106,7 @@ class ProductivityController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/productivity-shift/{id}",
+     *     path="/api/productivities-shift/{id}",
      *      tags={"KPI Productivity"},
      *      summary="Show all productivity kpi by shift",
      *      security={{"bearerAuth":{}}},
@@ -160,7 +160,7 @@ class ProductivityController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/productivity/{id}",
+     *      path="/api/productivities/{id}",
      *      tags={"KPI Productivity"},
      *      summary="Create a new productivity KPI",
      *      security={{"bearerAuth":{}}},

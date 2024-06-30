@@ -15,7 +15,7 @@ class CleanlinessController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/cleanliness",
+     *     path="/api/cleanlinesses",
      *      tags={"KPI Cleanliness"},
      *      summary="Show all cleanliness kpi",
      *      security={{"bearerAuth":{}}},
@@ -53,7 +53,7 @@ class CleanlinessController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/cleanliness-line/{id}",
+     *     path="/api/cleanlinesses-line/{id}",
      *      tags={"KPI Cleanliness"},
      *      summary="Show all cleanliness kpi by line",
      *      security={{"bearerAuth":{}}},
@@ -105,7 +105,7 @@ class CleanlinessController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/cleanliness-shift/{id}",
+     *     path="/api/cleanlinesses-shift/{id}",
      *      tags={"KPI Cleanliness"},
      *      summary="Show all cleanliness kpi by shift",
      *      security={{"bearerAuth":{}}},
@@ -159,7 +159,7 @@ class CleanlinessController extends Controller
      */
     /**
      * @OA\Post(
-     *      path="/api/cleanliness/{id}",
+     *      path="/api/cleanlinesses/{id}",
      *      tags={"KPI Cleanliness"},
      *      summary="Create a new cleanliness KPI",
      *      security={{"bearerAuth":{}}},
