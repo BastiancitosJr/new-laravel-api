@@ -1,3 +1,69 @@
+## Installation guide
+
+There are two installation guides:
+- [Undockerized Laravel](#php-laravel-10-application-without-docker)
+- [Dockerized Laravel](#dockerized-php-laravel-10-application)
+
+# PHP Laravel 10 Application (Without Docker)
+Before you start, make sure you have [Git](https://git-scm.com/downloads), [Xampp](https://www.apachefriends.org/es/index.html) to install php & [Composer](https://getcomposer.org/) installed on your system.
+
+Before starting, you must you must have oracle instant client installed.
+
+Clone the project to the folder of your choice using the following command using git or the windows command prompt:
+
+```bash
+git clone https://github.com/BastiancitosJr/new-laravel-api.git
+
+cd new-laravel-api
+```
+
+1. **Install PHP dependencies with Composer:**
+
+```bash
+composer install
+```
+This command will install the necessary PHP dependencies for the project.
+
+In the event that you have some type of error that requires updating composer, execute:
+
+```bash
+composer update
+```
+
+If you encounter an error in this step, you must enable the zip, oci8_12c and sodium extensions in your php.ini file of your php installation.
+
+2. **Configure environment variables:**
+
+```bash
+copy .env.example .env
+```
+
+This command will copy the .env.example file to .env. Here you must configure the database with your own credentials
+
+3. **Generate JWT secret**
+
+```bash
+php artisan jwt:secret
+```
+
+Will ask you to overwrite the current password, accept. This command will include dependencies that will successfully execute JWT.
+
+4. **Populate the database:**
+
+```bash
+php artisan migrate --seed
+```
+
+This command will create and populate the tables in the database with test data. Make sure the database is operational and matches the configuration previously made in the .env file.
+
+5. **Start the Laravel server:**
+
+```bash
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+This command will start the Laravel server and is accessible via IPv4 port 8000.
+
 # Dockerized PHP Laravel 10 Application
 
 This repository contains a Dockerized PHP Laravel application with support for Oracle database.
