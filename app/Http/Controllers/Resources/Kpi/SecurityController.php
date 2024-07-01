@@ -248,7 +248,7 @@ class SecurityController extends Controller
             return response()->json([
                 'message' => 'Se ha creado el KPI de seguridad correctamente',
                 'kpi' => $security
-            ]);
+            ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error de validación',

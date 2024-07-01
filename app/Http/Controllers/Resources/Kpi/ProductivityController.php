@@ -249,7 +249,7 @@ class ProductivityController extends Controller
             return response()->json([
                 'message' => 'Se ha creado el KPI de productividad correctamente',
                 'kpi' => $productivity
-            ]);
+            ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error de validación',

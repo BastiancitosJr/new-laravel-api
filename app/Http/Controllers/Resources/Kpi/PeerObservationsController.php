@@ -248,7 +248,7 @@ class PeerObservationsController extends Controller
             return response()->json([
                 'message' => 'Se ha creado el KPI de observaciones entre pares correctamente',
                 'kpi' => $peer_observations
-            ]);
+            ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error de validación',

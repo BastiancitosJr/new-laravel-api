@@ -249,7 +249,7 @@ class CleanlinessController extends Controller
             return response()->json([
                 'message' => 'Se ha creado el KPI de limpieza correctamente',
                 'kpi' => $cleanliness
-            ]);
+            ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error de validación',

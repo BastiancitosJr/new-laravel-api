@@ -241,7 +241,7 @@ class MonthlyProgrammingProgressController extends Controller
             return response()->json([
                 'message' => 'Se ha creado el progreso de programación mensual correctamente',
                 'kpi' => $monthly_programming
-            ]);
+            ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Error de validación',
