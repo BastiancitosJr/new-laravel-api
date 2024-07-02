@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             AdminsTableSeeder::class,
             AdministrativesTableSeeder::class,
             ShiftManagersTableSeeder::class,
+            ShiftsTableSeeder::class,
+            KpiSeeder::class,
         ]);
     }
 }
