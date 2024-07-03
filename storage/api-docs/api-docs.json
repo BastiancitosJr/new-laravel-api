@@ -40,7 +40,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "username": "app_admin@example.com",
+                                    "username": "shiftmanager_user@example.com",
                                     "password": "password"
                                 }
                             }
@@ -394,12 +394,12 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "done",
+                                    "is_done",
                                     "comment",
-                                    "line_name"
+                                    "uuid"
                                 ],
                                 "properties": {
-                                    "done": {
+                                    "is_done": {
                                         "description": "The cleanliness status",
                                         "type": "boolean"
                                     },
@@ -414,7 +414,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "done": true,
+                                    "is_done": true,
                                     "comment": "Este es un comentario",
                                     "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
                                 }
@@ -554,18 +554,14 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "deviations",
-                                    "audits",
-                                    "line_name"
+                                    "is_done",
+                                    "comment",
+                                    "uuid"
                                 ],
                                 "properties": {
-                                    "deviations": {
-                                        "description": "The deviations of the KPI",
-                                        "type": "integer"
-                                    },
-                                    "audits": {
-                                        "description": "The audits of the KPI",
-                                        "type": "integer"
+                                    "is_done": {
+                                        "description": "Complies with labeling quality",
+                                        "type": "boolean"
                                     },
                                     "comment": {
                                         "description": "The comment of the KPI",
@@ -578,8 +574,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "deviations": 1,
-                                    "audits": 4,
+                                    "is_done": true,
                                     "comment": "Este es un comentario",
                                     "uuid": "123e4567-e89b-12d3-a456-426614174000"
                                 }
@@ -718,6 +713,9 @@
                     "content": {
                         "application/json": {
                             "schema": {
+                                "required": [
+                                    "monthly_order"
+                                ],
                                 "properties": {
                                     "monthly_order": {
                                         "description": "The monthly order of the monthly programming progress",
@@ -772,7 +770,7 @@
                             "schema": {
                                 "required": [
                                     "monthly_order",
-                                    "line_name"
+                                    "uuid"
                                 ],
                                 "properties": {
                                     "monthly_order": {
@@ -925,14 +923,14 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "result",
+                                    "is_done",
                                     "comment",
-                                    "line_name"
+                                    "uuid"
                                 ],
                                 "properties": {
-                                    "result": {
+                                    "is_done": {
                                         "description": "The peer observations status",
-                                        "type": "integer"
+                                        "type": "boolean"
                                     },
                                     "comment": {
                                         "description": "The peer observations comment",
@@ -945,7 +943,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "result": 2,
+                                    "is_done": true,
                                     "comment": "Este es un comentario",
                                     "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
                                 }
@@ -1087,7 +1085,7 @@
                                 "required": [
                                     "packed_tons",
                                     "tons_produced",
-                                    "line_name"
+                                    "uuid"
                                 ],
                                 "properties": {
                                     "packed_tons": {
@@ -1245,14 +1243,14 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "result",
+                                    "is_incident",
                                     "comment",
-                                    "line_name"
+                                    "uuid"
                                 ],
                                 "properties": {
-                                    "result": {
+                                    "is_incident": {
                                         "description": "The peer observations status",
-                                        "type": "integer"
+                                        "type": "boolean"
                                     },
                                     "comment": {
                                         "description": "The peer observations comment",
@@ -1265,7 +1263,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "result": 2,
+                                    "is_incident": false,
                                     "comment": "Este es un comentario",
                                     "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
                                 }
@@ -2073,14 +2071,14 @@
                 ]
             }
         },
-        "/api/shift": {
+        "/api/shifts": {
             "get": {
                 "tags": [
                     "Shifts"
                 ],
                 "summary": "Show all shifts",
                 "description": "Returns a list of shifts",
-                "operationId": "1f91100716408eac2147c6344b348818",
+                "operationId": "103e4bf991b78692d4f10f7abf16603c",
                 "responses": {
                     "200": {
                         "description": "Show all shifts."
@@ -2096,14 +2094,14 @@
                 ]
             }
         },
-        "/api/shift/{id}": {
+        "/api/shifts/{id}": {
             "get": {
                 "tags": [
                     "Shifts"
                 ],
                 "summary": "Show shift by ID",
                 "description": "Returns an shift",
-                "operationId": "7e3303c17cba7dab923a97aaa46a829e",
+                "operationId": "b66c8582d55affa1e167e61c603f31b6",
                 "parameters": [
                     {
                         "name": "id",
@@ -2130,14 +2128,14 @@
                 ]
             }
         },
-        "/api/shift/active": {
+        "/api/shifts/active": {
             "get": {
                 "tags": [
                     "Shifts"
                 ],
                 "summary": "Show the active shift",
                 "description": "Returns an active shift",
-                "operationId": "031004fffa3feed352e97e6e87b66872",
+                "operationId": "7f7fbd2bd744d3b7a601bc92b6d10ded",
                 "responses": {
                     "200": {
                         "description": "Show the active shift."
@@ -2156,14 +2154,14 @@
                 ]
             }
         },
-        "/api/shift/open": {
+        "/api/shifts/open": {
             "post": {
                 "tags": [
                     "Shifts"
                 ],
                 "summary": "Start a new shift",
                 "description": "Start a new shift",
-                "operationId": "c2256dc0ac609173feda3d50de037641",
+                "operationId": "e89f9cfa465cc58226a68f49210c1193",
                 "responses": {
                     "201": {
                         "description": "successful operation"
@@ -2179,14 +2177,14 @@
                 ]
             }
         },
-        "/api/shift/close": {
+        "/api/shifts/close": {
             "post": {
                 "tags": [
                     "Shifts"
                 ],
                 "summary": "Close the active shift",
                 "description": "Returns a active shift",
-                "operationId": "b63d2deb180564633a0247df44b24dea",
+                "operationId": "9bcd64bb14c61140a83a486af3a176e2",
                 "responses": {
                     "200": {
                         "description": "Close the active shift."
