@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('peer_observations', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_done');
             $table->text('comment');
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');
