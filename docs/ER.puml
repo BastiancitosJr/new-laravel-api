@@ -87,7 +87,6 @@ entity Cleanliness {
 }
 
 entity PeerObservations {
-    * is_done : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -95,7 +94,6 @@ entity PeerObservations {
 }
 
 entity Security {
-    * is_incident : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -142,12 +140,12 @@ Shift }o--|| ShiftManager
 
 Productivity ||--|| Shift
 LabelingQuality }o--|| Shift
-Cleanliness }o--|| Shift
+Cleanliness ||--|| Shift
 PeerObservations }o--|| Shift
-Security }o--|| Shift
+Security ||--|| Shift
 MonthlyProgrammingProgress |o--o| Shift
 
-Line ||--|| Productivity
+Line ||--o{ Productivity
 Line ||--o{ LabelingQuality
 Line ||--o{ Cleanliness
 Line ||--o{ PeerObservations
