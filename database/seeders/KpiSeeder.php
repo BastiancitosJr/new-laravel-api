@@ -16,7 +16,6 @@ class KpiSeeder extends Seeder
 
         DB::table('productivities')->insert([
             ['packed_tons' => 2000, 'tons_produced' => 8200, 'line_id' => 1, 'shift_id' => 'de0aa71b-f9ad-4222-abc5-6196d7906078', 'created_at' => now(), 'updated_at' => now()],
-            ['packed_tons' => 3000, 'tons_produced' => 7200, 'line_id' => 1, 'shift_id' => '46abeede-4221-47bb-9282-a54621ece52b', 'created_at' => now(), 'updated_at' => now()],
         ]);
 
         DB::table('cleanlinesses')->insert([
@@ -41,7 +40,6 @@ class KpiSeeder extends Seeder
 
         DB::table('monthly_programming_progress')->insert([
             ['monthly_order' => 2390, 'line_id' => 1, 'shift_id' => 'de0aa71b-f9ad-4222-abc5-6196d7906078', 'created_at' => now(), 'updated_at' => now()],
-            ['monthly_order' => 2390, 'line_id' => 1, 'shift_id' => '46abeede-4221-47bb-9282-a54621ece52b', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
