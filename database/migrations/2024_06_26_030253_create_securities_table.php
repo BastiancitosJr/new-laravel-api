@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('securities', function (Blueprint $table) {
             $table->id();
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
