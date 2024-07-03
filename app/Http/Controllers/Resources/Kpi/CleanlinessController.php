@@ -85,7 +85,7 @@ class CleanlinessController extends Controller
                     'message' => 'No existe la linea',
                 ], 404);
             }
-            $cleanliness = Cleanliness::where('line_id', $id)->get();
+            $cleanliness = Cleanliness::where('line_id', $id)->first();
             if ($cleanliness->isEmpty()) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de limpieza para esta linea',
@@ -139,7 +139,7 @@ class CleanlinessController extends Controller
                 ], 404);
             }
 
-            $cleanliness = Cleanliness::where('shift_id', $id)->get();
+            $cleanliness = Cleanliness::where('shift_id', $id)->first();
             if ($cleanliness->isEmpty()) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de limpieza para este turno',
