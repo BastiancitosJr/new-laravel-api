@@ -179,9 +179,9 @@ class CleanlinessController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"done", "comment", "line_name"},
+     *                 required={"is_done", "comment", "uuid"},
      *                 @OA\Property(
-     *                     property="done",
+     *                     property="is_done",
      *                     type="boolean",
      *                     description="The cleanliness status"
      *                 ),
@@ -195,7 +195,7 @@ class CleanlinessController extends Controller
      *                     type="uuid",
      *                     description="The shift uuid"
      *                 ),
-     *                 example={"done": true, "comment": "Este es un comentario", "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"}
+     *                 example={"is_done": true, "comment": "Este es un comentario", "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"}
      *             )
      *         )
      *      ),
@@ -216,7 +216,7 @@ class CleanlinessController extends Controller
         try {
 
             $this->validate($request, [
-                'done' => 'required|boolean',
+                'is_done' => 'required|boolean',
                 'comment' => 'required|string',
                 'uuid' => 'required|uuid'
             ]);
@@ -240,7 +240,7 @@ class CleanlinessController extends Controller
             }
 
             $cleanliness = Cleanliness::Create([
-                'done' => $request->done,
+                'is_done' => $request->is_done,
                 'comment' => $request->comment,
                 'line_id' => $id,
                 'shift_id' => $request->uuid,

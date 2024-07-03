@@ -180,7 +180,7 @@ class ProductivityController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"packed_tons", "tons_produced", "line_name"},
+     *                 required={"packed_tons", "tons_produced", "uuid"},
      *                 @OA\Property(
      *                     property="packed_tons",
      *                     type="string",

@@ -179,16 +179,11 @@ class LabelingQualityController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"deviations", "audits", "line_name"},
+     *                 required={"is_done", "comment", "uuid"},
      *                 @OA\Property(
-     *                     property="deviations",
-     *                     type="integer",
-     *                     description="The deviations of the KPI"
-     *                 ),
-     *                 @OA\Property(
-     *                     property="audits",
-     *                     type="integer",
-     *                     description="The audits of the KPI"
+     *                     property="is_done",
+     *                     type="boolean",
+     *                     description="Complies with labeling quality"
      *                 ),
      *                 @OA\Property(
      *                     property="comment",
@@ -200,7 +195,7 @@ class LabelingQualityController extends Controller
      *                     type="uuid",
      *                     description="The shift uuid"
      *                 ),
-     *                 example={"deviations": 1, "audits": 4, "comment": "Este es un comentario", "uuid": "123e4567-e89b-12d3-a456-426614174000"}
+     *                 example={"is_done": true, "comment": "Este es un comentario", "uuid": "123e4567-e89b-12d3-a456-426614174000"}
      *             )
      *         )
      *      ),
@@ -220,8 +215,7 @@ class LabelingQualityController extends Controller
     {
         try {
             $this->validate($request, [
-                'deviations' => 'required|numeric',
-                'audits' => 'required|numeric',
+                'is_done' => 'required|boolean',
                 'comment' => 'required|string',
                 'uuid' => 'required|uuid',
             ]);
@@ -245,8 +239,7 @@ class LabelingQualityController extends Controller
             }
 
             $labeling_quality = LabelingQuality::Create([
-                'deviations' => $request->deviations,
-                'audits' => $request->audits,
+                'is_done' => $request->is_done,
                 'comment' => $request->comment,
                 'line_id' => $id,
                 'shift_id' => $request->uuid,

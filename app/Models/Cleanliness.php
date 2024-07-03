@@ -12,7 +12,7 @@ class Cleanliness extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'done',
+        'is_done',
         'comment',
         'line_id',
         'shift_id'
@@ -23,7 +23,7 @@ class Cleanliness extends BaseModel
      */
     protected $visible = [
         'id',
-        'done',
+        'is_done',
         'comment',
         'created_at',
         'updated_at'

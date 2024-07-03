@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('labeling_qualities', function (Blueprint $table) {
             $table->id();
-            $table->integer('deviations');
-            $table->integer('audits');
+            $table->boolean('is_done');
             $table->text('comment');
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');

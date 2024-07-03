@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cleanlinesses', function (Blueprint $table) {
             $table->id();
-            $table->integer('done');
+            $table->integer('is_done');
             $table->text('comment');
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');

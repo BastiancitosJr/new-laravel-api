@@ -70,31 +70,41 @@ class Line extends BaseModel
     /**
      * Get the labeling quality for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function labelingQuality()
     {
-        return $this->hasOne(LabelingQuality::class);
+        return $this->hasMany(LabelingQuality::class);
     }
 
     /**
      * Get the cleanliness for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function cleanliness()
     {
-        return $this->hasOne(Cleanliness::class);
+        return $this->hasMany(Cleanliness::class);
     }
 
     /**
      * Get the peer observations for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function peerObservations()
     {
-        return $this->hasOne(PeerObservations::class);
+        return $this->hasMany(PeerObservations::class);
+    }
+
+    /**
+     * Get the security for the line.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function security()
+    {
+        return $this->hasMany(Security::class);
     }
 
     /**

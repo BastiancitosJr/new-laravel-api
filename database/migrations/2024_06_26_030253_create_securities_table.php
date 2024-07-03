@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('securities', function (Blueprint $table) {
             $table->id();
-            $table->integer('result');
+            $table->boolean('is_incident');
             $table->text('comment');
             $table->foreignId('line_id')->constrained();
             $table->uuid('shift_id');

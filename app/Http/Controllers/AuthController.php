@@ -44,7 +44,7 @@ class AuthController extends Controller
      *                     type="string",
      *                     description="The user's password"
      *                 ),
-     *                 example={"username": "app_admin@example.com", "password": "password"}
+     *                 example={"username": "shiftmanager_user@example.com", "password": "password"}
      *             )
      *         )
      *      ),

@@ -12,8 +12,7 @@ class LabelingQuality extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'deviations',
-        'audits',
+        'is_done',
         'comment',
         'line_id',
         'shift_id'
@@ -24,8 +23,7 @@ class LabelingQuality extends BaseModel
      */
     protected $visible = [
         'id',
-        'deviations',
-        'audits',
+        'is_done',
         'comment',
         'created_at',
         'updated_at'

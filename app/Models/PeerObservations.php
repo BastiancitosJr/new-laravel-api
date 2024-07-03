@@ -12,7 +12,7 @@ class PeerObservations extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'result',
+        'is_done',
         'comment',
         'line_id',
         'shift_id'
@@ -23,7 +23,7 @@ class PeerObservations extends BaseModel
      */
     protected $visible = [
         'id',
-        'result',
+        'is_done',
         'comment',
         'created_at',
         'updated_at'

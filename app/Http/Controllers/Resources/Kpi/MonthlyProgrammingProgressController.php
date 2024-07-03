@@ -179,7 +179,7 @@ class MonthlyProgrammingProgressController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"monthly_order", "line_name"},
+     *                 required={"monthly_order", "uuid"},
      *                 @OA\Property(
      *                     property="monthly_order",
      *                     type="integer",
@@ -281,6 +281,7 @@ class MonthlyProgrammingProgressController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
+     *                 required={"monthly_order"},
      *                 @OA\Property(
      *                     property="monthly_order",
      *                     type="string",
