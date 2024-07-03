@@ -179,12 +179,7 @@ class PeerObservationsController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"is_done", "comment", "uuid"},
-     *                 @OA\Property(
-     *                     property="is_done",
-     *                     type="boolean",
-     *                     description="The peer observations status"
-     *                 ),
+     *                 required={"comment", "uuid"},
      *                 @OA\Property(
      *                     property="comment",
      *                     type="string",
@@ -195,7 +190,7 @@ class PeerObservationsController extends Controller
      *                     type="uuid",
      *                     description="The shift uuid"
      *                 ),
-     *                 example={"is_done": true, "comment": "Este es un comentario", "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"}
+     *                 example={"comment": "Este es un comentario", "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"}
      *             )
      *         )
      *      ),
@@ -215,7 +210,6 @@ class PeerObservationsController extends Controller
     {
         try {
             $this->validate($request, [
-                'is_done' => 'required|boolean',
                 'comment' => 'required|string',
                 'uuid' => 'required|uuid',
             ]);
@@ -239,7 +233,6 @@ class PeerObservationsController extends Controller
             }
 
             $peer_observations = PeerObservations::Create([
-                'is_done' => $request->is_done,
                 'comment' => $request->comment,
                 'line_id' => $id,
                 'shift_id' => $request->uuid,

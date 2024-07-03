@@ -84,31 +84,31 @@ class Shift extends Model
     /**
      * Get the cleanliness for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function cleanliness()
     {
-        return $this->hasMany(Cleanliness::class);
+        return $this->hasOne(Cleanliness::class);
     }
 
     /**
      * Get the peer observations for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function peerObservations()
     {
-        return $this->hasOne(PeerObservations::class);
+        return $this->hasMany(PeerObservations::class);
     }
 
     /**
      * Get the security for the line.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function security()
     {
-        return $this->hasMany(Security::class);
+        return $this->hasOne(Security::class);
     }
 
     /**

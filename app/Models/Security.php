@@ -9,7 +9,6 @@ class Security extends BaseModel
 {
 
     protected $fillable = [
-        'is_incident',
         'comment',
         'line_id',
         'shift_id'
@@ -20,7 +19,6 @@ class Security extends BaseModel
      */
     protected $visible = [
         'id',
-        'is_incident',
         'comment',
         'created_at',
         'updated_at'
