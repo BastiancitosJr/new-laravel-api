@@ -239,6 +239,14 @@ class CleanlinessController extends Controller
                 ], 404);
             }
 
+            $exists = Cleanliness::where('line_id', $id)->where('shift_id', $request->uuid)->first();
+
+            if ($exists) {
+                return response()->json([
+                    'message' => 'Ya existe un KPI de limpieza para esta linea y turno',
+                ], 400);
+            }
+
             $cleanliness = Cleanliness::Create([
                 'is_done' => $request->is_done,
                 'comment' => $request->comment,

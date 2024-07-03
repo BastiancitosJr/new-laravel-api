@@ -232,6 +232,14 @@ class SecurityController extends Controller
                 ], 404);
             }
 
+            $exists = Security::where('line_id', $id)->where('shift_id', $request->uuid)->first();
+
+            if ($exists) {
+                return response()->json([
+                    'message' => 'Ya existe un KPI de seguridad para esta linea y turno',
+                ], 400);
+            }
+
             $security = Security::Create([
                 'comment' => $request->comment,
                 'line_id' => $id,
