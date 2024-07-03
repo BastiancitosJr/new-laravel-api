@@ -86,7 +86,7 @@ class SecurityController extends Controller
                 ], 404);
             }
             $security = Security::where('line_id', $id)->first();
-            if ($security->isEmpty()) {
+            if (!$security) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de seguridad para esta linea',
                 ], 404);
@@ -140,7 +140,7 @@ class SecurityController extends Controller
             }
 
             $security = Security::where('shift_id', $id)->first();
-            if ($security->isEmpty()) {
+            if (!$security) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de seguridad para este turno',
                 ], 404);

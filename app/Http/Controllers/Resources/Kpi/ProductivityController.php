@@ -87,7 +87,7 @@ class ProductivityController extends Controller
                 ], 404);
             }
             $productivity = Productivity::where('line_id', $id)->first();
-            if ($productivity->isEmpty()) {
+            if (!$productivity) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de productividad para esta linea',
                 ], 404);
@@ -141,7 +141,7 @@ class ProductivityController extends Controller
             }
 
             $productivity = Productivity::where('shift_id', $id)->first();
-            if ($productivity->isEmpty()) {
+            if (!$productivity) {
                 return response()->json([
                     'message' => 'No se han encontrado KPI de productividad para este turno',
                 ], 404);
