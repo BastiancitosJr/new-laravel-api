@@ -7,6 +7,7 @@ use App\Models\Shift;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MonthlyProgrammingProgress;
+use Carbon\Carbon;
 
 class MonthlyProgrammingProgressController extends Controller
 {
@@ -36,13 +37,13 @@ class MonthlyProgrammingProgressController extends Controller
             $monthly_programming = MonthlyProgrammingProgress::all();
             if ($monthly_programming->isEmpty()) {
                 return response()->json([
-                    'message' => 'No hay progreso de programación mensual actualmente',
+                    'message' => 'No hay históricos deprogresos de programación mensual actualmente',
                 ], 404);
             }
             return response()->json($monthly_programming);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Se ha producido un error al obtener los historicos de progreso de programación mensual',
+                'message' => 'Se ha producido un error al obtener los históricos de progreso de programación mensual',
                 'error' => $e->getMessage(),
             ], 500);
         }
@@ -57,7 +58,7 @@ class MonthlyProgrammingProgressController extends Controller
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Show all monthly programming progress kpi by line",
      *      security={{"bearerAuth":{}}},
-     *      description="Returns a list of monthly programming progress kpi by line",
+     *      description="Returns a monthly programming progress kpi by line",
      *      @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -69,7 +70,7 @@ class MonthlyProgrammingProgressController extends Controller
      *      ),
      *      @OA\Response(
      *         response=200,
-     *         description="Show all monthly programming progress kpi by line."
+     *         description="Returns a monthly programming progress kpi by line."
      *     ),
      *     @OA\Response(
      *         response="default",
@@ -109,7 +110,7 @@ class MonthlyProgrammingProgressController extends Controller
      *      tags={"KPI Monthly Programming Progress"},
      *      summary="Show all monthly programming progress kpi by shift",
      *      security={{"bearerAuth":{}}},
-     *      description="Returns a list of monthly programming progress kpi by shift",
+     *      description="Returns a monthly programming progress kpi by shift",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -121,7 +122,7 @@ class MonthlyProgrammingProgressController extends Controller
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="Show all monthly programming progress kpi by shift."
+     *         description="Returns a monthly programming progress kpi by shift"
      *     ),
      *     @OA\Response(
      *         response="default",
@@ -152,6 +153,47 @@ class MonthlyProgrammingProgressController extends Controller
                 'error' => $e->getMessage(),
             ], 500);
         }
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/monthly-pps/verify-month",
+     *      tags={"KPI Monthly Programming Progress"},
+     *      summary="Verify if there is a monthly programming progress kpi for this month",
+     *      security={{"bearerAuth":{}}},
+     *      description="Returns a message with the result of the verification",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Exists monthly programming progress kpi for this month."
+     *     ),
+     *     @OA\Response(
+     *        response=404,
+     *       description="Not exists monthly programming progress kpi for this month."
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="An error occurred."
+     *     )
+     * )
+     */
+    public function verifyMonth()
+    {
+        $date = Carbon::now();
+
+        $monthly_programming = MonthlyProgrammingProgress::whereYear('created_at', $date->year)
+            ->whereMonth('created_at', $date->month)
+            ->first();
+
+        if ($monthly_programming) {
+            return response()->json([
+                'kpi' => $monthly_programming,
+                'message' => 'Ya existe un registro de progreso de programación mensual para este mes',
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'No existe un registro de progreso de programación mensual para este mes',
+        ], 404);
     }
 
     /**
@@ -230,6 +272,18 @@ class MonthlyProgrammingProgressController extends Controller
                 return response()->json([
                     'message' => 'El turno ha finalizado',
                 ], 404);
+            }
+
+            $date = Carbon::now();
+
+            $exists = MonthlyProgrammingProgress::whereYear('created_at', $date->year)
+                ->whereMonth('created_at', $date->month)
+                ->exists();
+
+            if ($exists) {
+                return response()->json([
+                    'message' => 'Ya existe un registro de progreso de programación mensual para este mes',
+                ], 400);
             }
 
             $monthly_programming = MonthlyProgrammingProgress::Create([

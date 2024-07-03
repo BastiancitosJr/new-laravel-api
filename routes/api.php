@@ -83,8 +83,10 @@ Route::middleware(['auth:api', 'role:' . UserRolesEnum::SHIFTMANAGER->value])->g
     Route::get('monthly-pps', [MonthlyProgrammingProgressController::class, 'index']);
     Route::get('monthly-pps-line/{id}', [MonthlyProgrammingProgressController::class, 'indexLine']);
     Route::get('monthly-pps-shift/{id}', [MonthlyProgrammingProgressController::class, 'indexShift']);
+    Route::get('monthly-pps/verify-month', [MonthlyProgrammingProgressController::class, 'verifyMonth']);
     Route::post('monthly-pps/{id}', [MonthlyProgrammingProgressController::class, 'store']);
     Route::put('monthly-pps/{id}', [MonthlyProgrammingProgressController::class, 'update']);
+
 
     Route::get('peer-observations', [PeerObservationsController::class, 'index']);
     Route::get('peer-observations-line/{id}', [PeerObservationsController::class, 'indexLine']);

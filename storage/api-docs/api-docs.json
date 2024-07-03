@@ -626,7 +626,7 @@
                     "KPI Monthly Programming Progress"
                 ],
                 "summary": "Show all monthly programming progress kpi by line",
-                "description": "Returns a list of monthly programming progress kpi by line",
+                "description": "Returns a monthly programming progress kpi by line",
                 "operationId": "6c1eef588702f707fbe9a05946bea0db",
                 "parameters": [
                     {
@@ -641,7 +641,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Show all monthly programming progress kpi by line."
+                        "description": "Returns a monthly programming progress kpi by line."
                     },
                     "default": {
                         "description": "An error occurred."
@@ -660,7 +660,7 @@
                     "KPI Monthly Programming Progress"
                 ],
                 "summary": "Show all monthly programming progress kpi by shift",
-                "description": "Returns a list of monthly programming progress kpi by shift",
+                "description": "Returns a monthly programming progress kpi by shift",
                 "operationId": "add9061d6a91fda6277004bfd6f11875",
                 "parameters": [
                     {
@@ -675,7 +675,33 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Show all monthly programming progress kpi by shift."
+                        "description": "Returns a monthly programming progress kpi by shift"
+                    },
+                    "default": {
+                        "description": "An error occurred."
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/monthly-pps/verify-month": {
+            "get": {
+                "tags": [
+                    "KPI Monthly Programming Progress"
+                ],
+                "summary": "Verify if there is a monthly programming progress kpi for this month",
+                "description": "Returns a message with the result of the verification",
+                "operationId": "342e179988a41a5207650786e3970568",
+                "responses": {
+                    "200": {
+                        "description": "Exists monthly programming progress kpi for this month."
+                    },
+                    "404": {
+                        "description": "Not exists monthly programming progress kpi for this month."
                     },
                     "default": {
                         "description": "An error occurred."
@@ -923,15 +949,10 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "is_done",
                                     "comment",
                                     "uuid"
                                 ],
                                 "properties": {
-                                    "is_done": {
-                                        "description": "The peer observations status",
-                                        "type": "boolean"
-                                    },
                                     "comment": {
                                         "description": "The peer observations comment",
                                         "type": "string"
@@ -943,7 +964,6 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "is_done": true,
                                     "comment": "Este es un comentario",
                                     "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
                                 }
@@ -1243,15 +1263,10 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "is_incident",
                                     "comment",
                                     "uuid"
                                 ],
                                 "properties": {
-                                    "is_incident": {
-                                        "description": "The peer observations status",
-                                        "type": "boolean"
-                                    },
                                     "comment": {
                                         "description": "The peer observations comment",
                                         "type": "string"
@@ -1263,7 +1278,6 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "is_incident": false,
                                     "comment": "Este es un comentario",
                                     "uuid": "c6b6f8c0-6f7b-11eb-9439-0242ac130002"
                                 }
