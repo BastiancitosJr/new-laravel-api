@@ -395,7 +395,6 @@
                             "schema": {
                                 "required": [
                                     "is_done",
-                                    "comment",
                                     "uuid"
                                 ],
                                 "properties": {
@@ -555,7 +554,6 @@
                             "schema": {
                                 "required": [
                                     "is_done",
-                                    "comment",
                                     "uuid"
                                 ],
                                 "properties": {
@@ -949,7 +947,6 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "comment",
                                     "uuid"
                                 ],
                                 "properties": {
@@ -1263,7 +1260,6 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "comment",
                                     "uuid"
                                 ],
                                 "properties": {

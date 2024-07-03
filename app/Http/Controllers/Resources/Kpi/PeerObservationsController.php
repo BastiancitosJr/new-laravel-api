@@ -179,7 +179,7 @@ class PeerObservationsController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"comment", "uuid"},
+     *                 required={"uuid"},
      *                 @OA\Property(
      *                     property="comment",
      *                     type="string",

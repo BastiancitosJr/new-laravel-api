@@ -179,7 +179,7 @@ class CleanlinessController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 required={"is_done", "comment", "uuid"},
+     *                 required={"is_done", "uuid"},
      *                 @OA\Property(
      *                     property="is_done",
      *                     type="boolean",
