@@ -4,7 +4,7 @@ To consult the dockerized version go to [DOCKER.md](DOCKER.md)
 
 ## Prerequisites
 
-Before you start, make sure you have [Git](https://git-scm.com/downloads), [Xampp](https://www.apachefriends.org/es/index.html) to install PHP, and [Composer](https://getcomposer.org/) installed on your system. You must also have the Oracle Instant Client installed.
+Before you start, make sure you have [Git](https://git-scm.com/downloads), [Xampp](https://www.apachefriends.org/es/index.html) to install PHP (8.2 or higher), and [Composer](https://getcomposer.org/) installed on your system. You must also have the Oracle Instant Client installed.
 
 ## Installation Guide
 
