@@ -1,6 +1,5 @@
 @startuml ER-Diagram
 hide empty methods
-skinparam linetype ortho
 
 
 entity BaseModel {
@@ -72,8 +71,7 @@ entity Productivity {
 }
 
 entity LabelingQuality {
-    * deviations : number
-    * audits : number
+    * is_done : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -81,7 +79,7 @@ entity LabelingQuality {
 }
 
 entity Cleanliness {
-    * done : boolean
+    * is_done : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -89,7 +87,7 @@ entity Cleanliness {
 }
 
 entity PeerObservations {
-    * result : number
+    * is_done : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -97,7 +95,7 @@ entity PeerObservations {
 }
 
 entity Security {
-    * result : number
+    * is_incident : boolean
     * comment : text
     --
     * shift_id : uuid <<FK>>
@@ -143,17 +141,17 @@ Area ||--o{ Line
 Shift }o--|| ShiftManager
 
 Productivity ||--|| Shift
-LabelingQuality ||--|| Shift
-Cleanliness ||--|| Shift
-PeerObservations ||--|| Shift
-Security ||--|| Shift
+LabelingQuality }o--|| Shift
+Cleanliness }o--|| Shift
+PeerObservations }o--|| Shift
+Security }o--|| Shift
 MonthlyProgrammingProgress |o--o| Shift
 
 Line ||--|| Productivity
-Line ||--|| LabelingQuality
-Line ||--|| Cleanliness
-Line ||--|| PeerObservations
-Line ||--|| Security
+Line ||--o{ LabelingQuality
+Line ||--o{ Cleanliness
+Line ||--o{ PeerObservations
+Line ||--o{ Security
 Line ||--|| MonthlyProgrammingProgress
 
 
