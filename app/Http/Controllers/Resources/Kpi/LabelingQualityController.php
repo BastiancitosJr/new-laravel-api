@@ -34,12 +34,12 @@ class LabelingQualityController extends Controller
     {
         try {
             $labeling_quality = LabelingQuality::all();
-            if ($labeling_quality->isEmpty()) {
-                return response()->json([
-                    'message' => 'No hay KPI de calidad de etiquetado actualmente',
-                ], 404);
-            }
-            return response()->json($labeling_quality);
+            // if ($labeling_quality->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No hay KPI de calidad de etiquetado actualmente',
+            //     ], 404);
+            // }
+            return response()->json($labeling_quality, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de calidad de etiquetado',
@@ -86,12 +86,12 @@ class LabelingQualityController extends Controller
                 ], 404);
             }
             $labeling_quality = LabelingQuality::where('line_id', $id)->get();
-            if ($labeling_quality->isEmpty()) {
-                return response()->json([
-                    'message' => 'No se han encontrado KPI de calidad de etiquetado para esta linea',
-                ], 404);
-            }
-            return response()->json($labeling_quality);
+            // if ($labeling_quality->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No se han encontrado KPI de calidad de etiquetado para esta linea',
+            //     ], 404);
+            // }
+            return response()->json($labeling_quality, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de calidad de etiquetado',
@@ -140,12 +140,12 @@ class LabelingQualityController extends Controller
             }
 
             $labeling_quality = LabelingQuality::where('shift_id', $id)->get();
-            if ($labeling_quality->isEmpty()) {
-                return response()->json([
-                    'message' => 'No se han encontrado KPI de calidad de etiquetado para este turno',
-                ], 404);
-            }
-            return response()->json($labeling_quality);
+            // if ($labeling_quality->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No se han encontrado KPI de calidad de etiquetado para este turno',
+            //     ], 404);
+            // }
+            return response()->json($labeling_quality, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de calidad de etiquetado',

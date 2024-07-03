@@ -34,12 +34,12 @@ class PeerObservationsController extends Controller
     {
         try {
             $peer_observations = PeerObservations::all();
-            if ($peer_observations->isEmpty()) {
-                return response()->json([
-                    'message' => 'No hay KPI de observaciones entre pares actualmente',
-                ], 404);
-            }
-            return response()->json($peer_observations);
+            // if ($peer_observations->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No hay KPI de observaciones entre pares actualmente',
+            //     ], 404);
+            // }
+            return response()->json($peer_observations, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de observaciones entre pares',
@@ -86,12 +86,12 @@ class PeerObservationsController extends Controller
                 ], 404);
             }
             $peer_observations = PeerObservations::where('line_id', $id)->get();
-            if ($peer_observations->isEmpty()) {
-                return response()->json([
-                    'message' => 'No se han encontrado KPI de observaciones entre pares para esta linea',
-                ], 404);
-            }
-            return response()->json($peer_observations);
+            // if ($peer_observations->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No se han encontrado KPI de observaciones entre pares para esta linea',
+            //     ], 404);
+            // }
+            return response()->json($peer_observations, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de observaciones entre pares',
@@ -140,12 +140,12 @@ class PeerObservationsController extends Controller
             }
 
             $peer_observations = PeerObservations::where('shift_id', $id)->get();
-            if ($peer_observations->isEmpty()) {
-                return response()->json([
-                    'message' => 'No se han encontrado KPI de observaciones entre pares para este turno',
-                ], 404);
-            }
-            return response()->json($peer_observations);
+            // if ($peer_observations->isEmpty()) {
+            //     return response()->json([
+            //         'message' => 'No se han encontrado KPI de observaciones entre pares para este turno',
+            //     ], 404);
+            // }
+            return response()->json($peer_observations, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Se ha producido un error al obtener los KPI de observaciones entre pares',
